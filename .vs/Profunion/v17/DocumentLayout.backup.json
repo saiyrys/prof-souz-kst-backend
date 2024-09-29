@@ -1,0 +1,177 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\\u041F\u0430\u0432\u0435\u043B\\Desktop\\Profunion\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{002FF558-2557-443D-AE1D-ADEAAFBE99B0}|src\\Auth\\Auth.API\\Auth.API.csproj|c:\\users\\\u043F\u0430\u0432\u0435\u043B\\desktop\\profunion\\src\\auth\\auth.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{002FF558-2557-443D-AE1D-ADEAAFBE99B0}|src\\Auth\\Auth.API\\Auth.API.csproj|solutionrelative:src\\auth\\auth.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CC825DA-E4BF-4B32-9100-D3F026823000}|FunctionalTests\\FunctionalTests.csproj|c:\\users\\\u043F\u0430\u0432\u0435\u043B\\desktop\\profunion\\functionaltests\\authtests\\base\\authscenariobase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CC825DA-E4BF-4B32-9100-D3F026823000}|FunctionalTests\\FunctionalTests.csproj|solutionrelative:functionaltests\\authtests\\base\\authscenariobase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CC825DA-E4BF-4B32-9100-D3F026823000}|FunctionalTests\\FunctionalTests.csproj|c:\\users\\\u043F\u0430\u0432\u0435\u043B\\desktop\\profunion\\functionaltests\\authtests\\authscenario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CC825DA-E4BF-4B32-9100-D3F026823000}|FunctionalTests\\FunctionalTests.csproj|solutionrelative:functionaltests\\authtests\\authscenario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{002FF558-2557-443D-AE1D-ADEAAFBE99B0}|src\\Auth\\Auth.API\\Auth.API.csproj|c:\\users\\\u043F\u0430\u0432\u0435\u043B\\desktop\\profunion\\src\\auth\\auth.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{002FF558-2557-443D-AE1D-ADEAAFBE99B0}|src\\Auth\\Auth.API\\Auth.API.csproj|solutionrelative:src\\auth\\auth.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{002FF558-2557-443D-AE1D-ADEAAFBE99B0}|src\\Auth\\Auth.API\\Auth.API.csproj|c:\\users\\\u043F\u0430\u0432\u0435\u043B\\desktop\\profunion\\src\\auth\\auth.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{002FF558-2557-443D-AE1D-ADEAAFBE99B0}|src\\Auth\\Auth.API\\Auth.API.csproj|solutionrelative:src\\auth\\auth.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CC825DA-E4BF-4B32-9100-D3F026823000}|FunctionalTests\\FunctionalTests.csproj|c:\\users\\\u043F\u0430\u0432\u0435\u043B\\desktop\\profunion\\functionaltests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CC825DA-E4BF-4B32-9100-D3F026823000}|FunctionalTests\\FunctionalTests.csproj|solutionrelative:functionaltests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0955AAC9-A9F7-4CDF-AB0F-5D9F14058E44}|src\\Auth\\Auth.Application\\Auth.Application.csproj|c:\\users\\\u043F\u0430\u0432\u0435\u043B\\desktop\\profunion\\src\\auth\\auth.application\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0955AAC9-A9F7-4CDF-AB0F-5D9F14058E44}|src\\Auth\\Auth.Application\\Auth.Application.csproj|solutionrelative:src\\auth\\auth.application\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0332F525-37F9-4357-855D-7872D71000D9}|tests\\UnitTests\\UnitTests.csproj|c:\\users\\\u043F\u0430\u0432\u0435\u043B\\desktop\\profunion\\tests\\unittests\\createuserfactorytests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0332F525-37F9-4357-855D-7872D71000D9}|tests\\UnitTests\\UnitTests.csproj|solutionrelative:tests\\unittests\\createuserfactorytests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4EC008E5-F584-4A0C-8BBA-7FE00E5C3E48}|src\\Users\\Users.API\\Users.API.csproj|c:\\users\\\u043F\u0430\u0432\u0435\u043B\\desktop\\profunion\\src\\users\\users.api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4EC008E5-F584-4A0C-8BBA-7FE00E5C3E48}|src\\Users\\Users.API\\Users.API.csproj|solutionrelative:src\\users\\users.api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\\u041F\u0430\u0432\u0435\u043B\\Desktop\\Profunion\\src\\Auth\\Auth.API\\appsettings.json",
+              "RelativeDocumentMoniker": "src\\Auth\\Auth.API\\appsettings.json",
+              "ToolTip": "C:\\Users\\\u041F\u0430\u0432\u0435\u043B\\Desktop\\Profunion\\src\\Auth\\Auth.API\\appsettings.json",
+              "RelativeToolTip": "src\\Auth\\Auth.API\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-09-29T12:29:47.935Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AuthScenario.cs",
+              "DocumentMoniker": "C:\\Users\\\u041F\u0430\u0432\u0435\u043B\\Desktop\\Profunion\\FunctionalTests\\AuthTests\\AuthScenario.cs",
+              "RelativeDocumentMoniker": "FunctionalTests\\AuthTests\\AuthScenario.cs",
+              "ToolTip": "C:\\Users\\\u041F\u0430\u0432\u0435\u043B\\Desktop\\Profunion\\FunctionalTests\\AuthTests\\AuthScenario.cs",
+              "RelativeToolTip": "FunctionalTests\\AuthTests\\AuthScenario.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAUwBEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T12:24:45.619Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\\u041F\u0430\u0432\u0435\u043B\\Desktop\\Profunion\\src\\Auth\\Auth.API\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "src\\Auth\\Auth.API\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\\u041F\u0430\u0432\u0435\u043B\\Desktop\\Profunion\\src\\Auth\\Auth.API\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "src\\Auth\\Auth.API\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T12:24:24.9Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\\u041F\u0430\u0432\u0435\u043B\\Desktop\\Profunion\\src\\Auth\\Auth.API\\Program.cs",
+              "RelativeDocumentMoniker": "src\\Auth\\Auth.API\\Program.cs",
+              "ToolTip": "C:\\Users\\\u041F\u0430\u0432\u0435\u043B\\Desktop\\Profunion\\src\\Auth\\Auth.API\\Program.cs",
+              "RelativeToolTip": "src\\Auth\\Auth.API\\Program.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAAD4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T12:22:13.362Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AuthScenarioBase.cs",
+              "DocumentMoniker": "C:\\Users\\\u041F\u0430\u0432\u0435\u043B\\Desktop\\Profunion\\FunctionalTests\\AuthTests\\Base\\AuthScenarioBase.cs",
+              "RelativeDocumentMoniker": "FunctionalTests\\AuthTests\\Base\\AuthScenarioBase.cs",
+              "ToolTip": "C:\\Users\\\u041F\u0430\u0432\u0435\u043B\\Desktop\\Profunion\\FunctionalTests\\AuthTests\\Base\\AuthScenarioBase.cs",
+              "RelativeToolTip": "FunctionalTests\\AuthTests\\Base\\AuthScenarioBase.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAywCMAAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T12:17:22.87Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UnitTest1.cs",
+              "DocumentMoniker": "C:\\Users\\\u041F\u0430\u0432\u0435\u043B\\Desktop\\Profunion\\FunctionalTests\\UnitTest1.cs",
+              "RelativeDocumentMoniker": "FunctionalTests\\UnitTest1.cs",
+              "ToolTip": "C:\\Users\\\u041F\u0430\u0432\u0435\u043B\\Desktop\\Profunion\\FunctionalTests\\UnitTest1.cs",
+              "RelativeToolTip": "FunctionalTests\\UnitTest1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T12:16:25.503Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\Users\\\u041F\u0430\u0432\u0435\u043B\\Desktop\\Profunion\\src\\Auth\\Auth.Application\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "src\\Auth\\Auth.Application\\Services\\AuthService.cs",
+              "ToolTip": "C:\\Users\\\u041F\u0430\u0432\u0435\u043B\\Desktop\\Profunion\\src\\Auth\\Auth.Application\\Services\\AuthService.cs",
+              "RelativeToolTip": "src\\Auth\\Auth.Application\\Services\\AuthService.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T12:12:50.12Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CreateUserFactoryTests.cs",
+              "DocumentMoniker": "C:\\Users\\\u041F\u0430\u0432\u0435\u043B\\Desktop\\Profunion\\tests\\UnitTests\\CreateUserFactoryTests.cs",
+              "RelativeDocumentMoniker": "tests\\UnitTests\\CreateUserFactoryTests.cs",
+              "ToolTip": "C:\\Users\\\u041F\u0430\u0432\u0435\u043B\\Desktop\\Profunion\\tests\\UnitTests\\CreateUserFactoryTests.cs",
+              "RelativeToolTip": "tests\\UnitTests\\CreateUserFactoryTests.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T12:12:30.736Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\\u041F\u0430\u0432\u0435\u043B\\Desktop\\Profunion\\src\\Users\\Users.API\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "src\\Users\\Users.API\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\\u041F\u0430\u0432\u0435\u043B\\Desktop\\Profunion\\src\\Users\\Users.API\\Controllers\\UserController.cs",
+              "RelativeToolTip": "src\\Users\\Users.API\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T12:11:24.003Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

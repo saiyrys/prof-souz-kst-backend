@@ -1,0 +1,8 @@
+{
+  "Auth.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\Павел\\Desktop\\Profunion\\src\\Auth\\Auth.API",
+  "Auth.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\Павел\\Desktop\\Profunion\\src\\Auth\\Auth.Application",
+  "UserControl, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\Павел\\Desktop\\Profunion\\src\\Services\\UserControl",
+  "Users.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\Павел\\Desktop\\Profunion\\src\\Users\\Users.Application",
+  "Users.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\Павел\\Desktop\\Profunion\\src\\Users\\Users.Domain",
+  "Users.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\Павел\\Desktop\\Profunion\\src\\Users\\Users.Infrastructure"
+}

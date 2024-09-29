@@ -1,0 +1,13 @@
+C:\Users\Павел\Desktop\Profunion\src\Users\Users.Infrastructure\bin\Debug\net6.0\Users.Infrastructure.deps.json
+C:\Users\Павел\Desktop\Profunion\src\Users\Users.Infrastructure\bin\Debug\net6.0\Users.Infrastructure.dll
+C:\Users\Павел\Desktop\Profunion\src\Users\Users.Infrastructure\bin\Debug\net6.0\Users.Infrastructure.pdb
+C:\Users\Павел\Desktop\Profunion\src\Users\Users.Infrastructure\obj\Debug\net6.0\Users.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Павел\Desktop\Profunion\src\Users\Users.Infrastructure\obj\Debug\net6.0\Users.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Павел\Desktop\Profunion\src\Users\Users.Infrastructure\obj\Debug\net6.0\Users.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Павел\Desktop\Profunion\src\Users\Users.Infrastructure\obj\Debug\net6.0\Users.Infrastructure.AssemblyInfo.cs
+C:\Users\Павел\Desktop\Profunion\src\Users\Users.Infrastructure\obj\Debug\net6.0\Users.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Павел\Desktop\Profunion\src\Users\Users.Infrastructure\obj\Debug\net6.0\Users.Infrastructure.sourcelink.json
+C:\Users\Павел\Desktop\Profunion\src\Users\Users.Infrastructure\obj\Debug\net6.0\Users.Infrastructure.dll
+C:\Users\Павел\Desktop\Profunion\src\Users\Users.Infrastructure\obj\Debug\net6.0\refint\Users.Infrastructure.dll
+C:\Users\Павел\Desktop\Profunion\src\Users\Users.Infrastructure\obj\Debug\net6.0\Users.Infrastructure.pdb
+C:\Users\Павел\Desktop\Profunion\src\Users\Users.Infrastructure\obj\Debug\net6.0\ref\Users.Infrastructure.dll
