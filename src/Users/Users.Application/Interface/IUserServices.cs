@@ -11,8 +11,8 @@ namespace Users.Application.Interface
     public interface IUserServices
     {
         Task<(IEnumerable<GetUserDto> user, int totalPage)> GetUserForAdmin(int page, string search = null, string sort = null, string type = null, string T = null);
-        /*Task<User> GetUserById(string id);*/
-        Task<User> GetUserInfo(string token);
+        Task<GetUserDto> GetUserById(string id);
+        Task<GetUserDto> GetUserInfo(string token);
         Task<bool> UpdateUser(string userId);
         Task<bool> DeleteUser(string userId);
     }

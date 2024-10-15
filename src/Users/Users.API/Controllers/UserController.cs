@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using UserControl;
 using Users.Application.Interface;
 using Users.Domain.Entities;
 
@@ -32,6 +33,54 @@ namespace Users.API.Controllers
 
             return Ok(new { Items = users, TotalPages = totalPages });
 
+        }
+
+        [HttpGet("profile")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        public async Task<ActionResult> GetProfile()
+        {
+            string token = HttpContext.Request.Cookies["accessToken"];
+
+            var userProfile = await _userService.GetUserInfo(token);
+
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            return Ok(userProfile);
+        }
+
+        [HttpGet("userId")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        public async Task<ActionResult> GetUser(string userId)
+        {
+            var user = await _userService.GetUserById(userId);
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            return Ok(user);
+        }
+
+        [HttpDelete("userId")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        public async Task<ActionResult> DeleteUser(string userId)
+        {
+            var user = await _userService.DeleteUser(userId);
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            return Ok(true);
         }
     }
 }

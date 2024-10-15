@@ -90,7 +90,7 @@ namespace Auth.Application.Services
 
         public async Task<UserInfoDto> GetUser(string token)
         {
-            var accessToken = Control.VerifyByTokenAsync();
+            /*var accessToken = Control.VerifyByTokenAsync();*/
 
             if (string.IsNullOrEmpty(token))
                 throw new ArgumentNullException("Token is unregister");

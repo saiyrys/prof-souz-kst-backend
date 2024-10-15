@@ -1,5 +1,3 @@
-C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\bin\Debug\net6.0\appsettings.Development.json
-C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\bin\Debug\net6.0\appsettings.json
 C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\bin\Debug\net6.0\Auth.API.exe
 C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\bin\Debug\net6.0\Auth.API.deps.json
 C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\bin\Debug\net6.0\Auth.API.runtimeconfig.json
@@ -51,7 +49,6 @@ C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\obj\Debug\net6.0\Auth.AP
 C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\obj\Debug\net6.0\Auth.API.csproj.CoreCompileInputs.cache
 C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\obj\Debug\net6.0\Auth.API.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\obj\Debug\net6.0\Auth.API.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\obj\Debug\net6.0\Auth.API.sourcelink.json
 C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\obj\Debug\net6.0\staticwebassets.build.json
 C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\obj\Debug\net6.0\staticwebassets.development.json
 C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\obj\Debug\net6.0\staticwebassets\msbuild.Auth.API.Microsoft.AspNetCore.StaticWebAssets.props
@@ -69,3 +66,5 @@ C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\obj\Debug\net6.0\ref\Aut
 C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
 C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\bin\Debug\net6.0\appsettings.json

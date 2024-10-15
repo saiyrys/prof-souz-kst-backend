@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using Microsoft.EntityFrameworkCore;
 using SendGrid.Helpers.Errors.Model;
+using UserControl;
 using Users.Application.Dto;
 using Users.Application.Interface;
 using Users.Domain.Entities;
@@ -14,12 +14,14 @@ namespace Users.Application.Services
         private readonly ApplicationDbContext _context;
         private readonly IMapper _mapper;
         private readonly IUserRepository _userRepository;
+        private readonly IControl<User> Control;
 
-        public UserServices(ApplicationDbContext context, IMapper mapper, IUserRepository userRepository)
+        public UserServices(ApplicationDbContext context, IMapper mapper, IUserRepository userRepository, IControl<User> control)
         {
             _context = context;
             _mapper = mapper;
             _userRepository = userRepository;
+            Control = control;
         }
 
         public async Task<(IEnumerable<GetUserDto> user, int totalPage)> GetUserForAdmin(int page, string? search = null, string? sort = null, string? type = null, string? f = null)
@@ -43,32 +45,40 @@ namespace Users.Application.Services
             return (userDto, totalPage);
 
         }
-       /* public async Task<User> GetUserById(string id)
+        public async Task<GetUserDto> GetUserById(string id)
         {
-            var user = await _context.users.Where(u => u.userId == id).FirstOrDefaultAsync();
+            if (string.IsNullOrEmpty(id))
+                throw new ArgumentNullException("id is nothing");
 
-            if (user is null)
-                throw new BadRequestException();
+            var user = await Control.FindByIdAsync(id);
 
-            var response = new GetUserDto
+            if (user != null)
             {
-                userId = user.userId,
-                username = user.userName,
-                firstname = user.firstName,
-                lastname = user.lastName,
-                middlename = user.middleName,
-                email = user.email,
-                role = user.role
-            };
+                var userDto = _mapper.Map<GetUserDto>(user);
 
-            var userDto = _mapper.Map<User>(response);
+                return userDto;
+            }
 
-            return userDto;
-
-        }*/
-        public async Task<User> GetUserInfo(string token)
+            throw new BadRequestException("User not found");
+        }
+        public async Task<GetUserDto> GetUserInfo(string token)
         {
-            throw new NotImplementedException();
+            /*await Control.VerifyByTokenAsync();*/
+
+            if (token is null)
+                throw new BadRequestException("Unauthorized token");
+
+            var user = await Control.FindByTokenAsync(token);
+
+            /*if (user != null)
+            {*/
+                var userDto = _mapper.Map<GetUserDto>(user);
+
+                return userDto;
+            /*}
+
+            throw new BadRequestException("user not found");*/
+
         }
         public Task<bool> UpdateUser(string userId)
         {

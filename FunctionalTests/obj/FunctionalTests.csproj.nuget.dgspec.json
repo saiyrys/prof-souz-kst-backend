@@ -394,6 +394,9 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
+              "C:\\Users\\Павел\\Desktop\\Profunion\\src\\Services\\UserControl\\UserControl.csproj": {
+                "projectPath": "C:\\Users\\Павел\\Desktop\\Profunion\\src\\Services\\UserControl\\UserControl.csproj"
+              },
               "C:\\Users\\Павел\\Desktop\\Profunion\\src\\Users\\Users.Infrastructure\\Users.Infrastructure.csproj": {
                 "projectPath": "C:\\Users\\Павел\\Desktop\\Profunion\\src\\Users\\Users.Infrastructure\\Users.Infrastructure.csproj"
               }

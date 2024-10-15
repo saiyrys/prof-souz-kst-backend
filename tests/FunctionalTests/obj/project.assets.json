@@ -3406,6 +3406,7 @@
         "dependencies": {
           "AutoMapper": "13.0.1",
           "SendGrid": "9.29.3",
+          "UserControl": "1.0.0",
           "Users.Infrastructure": "1.0.0"
         },
         "compile": {

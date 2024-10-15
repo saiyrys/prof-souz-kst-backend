@@ -14,6 +14,7 @@
           "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.21.0",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "6.0.29",
           "Swashbuckle.AspNetCore": "6.5.0",
+          "UserControl": "1.0.0",
           "Users.Application": "1.0.0",
           "Users.Domain": "1.0.0",
           "Users.Infrastructure": "1.0.0"
@@ -645,6 +646,7 @@
         "dependencies": {
           "AutoMapper": "13.0.1",
           "SendGrid": "9.29.3",
+          "UserControl": "1.0.0",
           "Users.Infrastructure": "1.0.0"
         },
         "runtime": {

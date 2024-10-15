@@ -1,7 +1,9 @@
 ﻿using Auth.Application.Services;
 using Microsoft.EntityFrameworkCore;
+using UserControl;
 using Users.Application.Interface;
 using Users.Application.Services;
+using Users.Domain.Entities;
 using Users.Infrastructure.Data;
 using Users.Infrastructure.Repositories;
 
@@ -31,6 +33,7 @@ namespace Users.API
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserServices, UserServices>();
+            services.AddScoped(typeof(IControl<>), typeof(Control<>));
 
             /*services.AddScoped<UserFactory, CreateUserFactory>();*/
 

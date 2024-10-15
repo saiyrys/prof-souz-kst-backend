@@ -1308,6 +1308,7 @@
         "dependencies": {
           "AutoMapper": "13.0.1",
           "SendGrid": "9.29.3",
+          "UserControl": "1.0.0",
           "Users.Infrastructure": "1.0.0"
         },
         "compile": {
@@ -3231,6 +3232,7 @@
       "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.21.0",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 6.0.29",
       "Swashbuckle.AspNetCore >= 6.5.0",
+      "UserControl >= 1.0.0",
       "Users.Application >= 1.0.0",
       "Users.Domain >= 1.0.0",
       "Users.Infrastructure >= 1.0.0"
@@ -3271,6 +3273,9 @@
           "projectReferences": {
             "C:\\Users\\Павел\\Desktop\\Profunion\\src\\Auth\\Auth.Application\\Auth.Application.csproj": {
               "projectPath": "C:\\Users\\Павел\\Desktop\\Profunion\\src\\Auth\\Auth.Application\\Auth.Application.csproj"
+            },
+            "C:\\Users\\Павел\\Desktop\\Profunion\\src\\Services\\UserControl\\UserControl.csproj": {
+              "projectPath": "C:\\Users\\Павел\\Desktop\\Profunion\\src\\Services\\UserControl\\UserControl.csproj"
             },
             "C:\\Users\\Павел\\Desktop\\Profunion\\src\\Users\\Users.Application\\Users.Application.csproj": {
               "projectPath": "C:\\Users\\Павел\\Desktop\\Profunion\\src\\Users\\Users.Application\\Users.Application.csproj"

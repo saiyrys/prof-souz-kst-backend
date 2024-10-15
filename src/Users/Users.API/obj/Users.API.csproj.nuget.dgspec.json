@@ -220,6 +220,9 @@
               "C:\\Users\\Павел\\Desktop\\Profunion\\src\\Auth\\Auth.Application\\Auth.Application.csproj": {
                 "projectPath": "C:\\Users\\Павел\\Desktop\\Profunion\\src\\Auth\\Auth.Application\\Auth.Application.csproj"
               },
+              "C:\\Users\\Павел\\Desktop\\Profunion\\src\\Services\\UserControl\\UserControl.csproj": {
+                "projectPath": "C:\\Users\\Павел\\Desktop\\Profunion\\src\\Services\\UserControl\\UserControl.csproj"
+              },
               "C:\\Users\\Павел\\Desktop\\Profunion\\src\\Users\\Users.Application\\Users.Application.csproj": {
                 "projectPath": "C:\\Users\\Павел\\Desktop\\Profunion\\src\\Users\\Users.Application\\Users.Application.csproj"
               },
@@ -322,6 +325,9 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
+              "C:\\Users\\Павел\\Desktop\\Profunion\\src\\Services\\UserControl\\UserControl.csproj": {
+                "projectPath": "C:\\Users\\Павел\\Desktop\\Profunion\\src\\Services\\UserControl\\UserControl.csproj"
+              },
               "C:\\Users\\Павел\\Desktop\\Profunion\\src\\Users\\Users.Infrastructure\\Users.Infrastructure.csproj": {
                 "projectPath": "C:\\Users\\Павел\\Desktop\\Profunion\\src\\Users\\Users.Infrastructure\\Users.Infrastructure.csproj"
               }
