@@ -10,11 +10,6 @@ namespace Category.Infrastructure.Models
     {
         public string categoryId { get; set; } = null;
         public string name { get; set; } = null;
-        public color_category color { get; set; }
-    }
 
-    public enum color_category
-    {
-        defaults
     }
 }

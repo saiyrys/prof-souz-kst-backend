@@ -13,11 +13,9 @@ namespace Category.Application.Mapping
     {
         public MappingCategory()
         {
-            CreateMap<CategoryDto, Categories>()
-                .ForMember(dest => dest.color, opt => opt.MapFrom(src => Enum.Parse<color_category>(src.color, true)));
+            CreateMap<CategoryDto, Categories>();
 
-            CreateMap<Categories, CategoryDto>()
-                .ForMember(dest => dest.color, opt => opt.MapFrom(src => src.color.ToString()));
+            CreateMap<Categories, CategoryDto>();
 
         }
     }
