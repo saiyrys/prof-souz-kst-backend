@@ -8,7 +8,7 @@ namespace Category.Infrastructure.Models
 {
     public class Categories
     {
-        public string categoryId { get; set; } = null;
+        public string categoriesId { get; set; } = null;
         public string name { get; set; } = null;
 
     }

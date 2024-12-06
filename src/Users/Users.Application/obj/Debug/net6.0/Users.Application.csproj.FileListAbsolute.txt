@@ -1,7 +1,9 @@
 C:\Users\Павел\Desktop\Profunion\src\Users\Users.Application\bin\Debug\net6.0\Users.Application.deps.json
 C:\Users\Павел\Desktop\Profunion\src\Users\Users.Application\bin\Debug\net6.0\Users.Application.dll
 C:\Users\Павел\Desktop\Profunion\src\Users\Users.Application\bin\Debug\net6.0\Users.Application.pdb
+C:\Users\Павел\Desktop\Profunion\src\Users\Users.Application\bin\Debug\net6.0\UserControl.dll
 C:\Users\Павел\Desktop\Profunion\src\Users\Users.Application\bin\Debug\net6.0\Users.Infrastructure.dll
+C:\Users\Павел\Desktop\Profunion\src\Users\Users.Application\bin\Debug\net6.0\UserControl.pdb
 C:\Users\Павел\Desktop\Profunion\src\Users\Users.Application\bin\Debug\net6.0\Users.Infrastructure.pdb
 C:\Users\Павел\Desktop\Profunion\src\Users\Users.Application\obj\Debug\net6.0\Users.Application.csproj.AssemblyReference.cache
 C:\Users\Павел\Desktop\Profunion\src\Users\Users.Application\obj\Debug\net6.0\Users.Application.GeneratedMSBuildEditorConfig.editorconfig
@@ -13,5 +15,3 @@ C:\Users\Павел\Desktop\Profunion\src\Users\Users.Application\obj\Debug\net6
 C:\Users\Павел\Desktop\Profunion\src\Users\Users.Application\obj\Debug\net6.0\refint\Users.Application.dll
 C:\Users\Павел\Desktop\Profunion\src\Users\Users.Application\obj\Debug\net6.0\Users.Application.pdb
 C:\Users\Павел\Desktop\Profunion\src\Users\Users.Application\obj\Debug\net6.0\ref\Users.Application.dll
-C:\Users\Павел\Desktop\Profunion\src\Users\Users.Application\bin\Debug\net6.0\UserControl.dll
-C:\Users\Павел\Desktop\Profunion\src\Users\Users.Application\bin\Debug\net6.0\UserControl.pdb

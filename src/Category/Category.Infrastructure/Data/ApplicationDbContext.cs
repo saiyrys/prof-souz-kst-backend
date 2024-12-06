@@ -11,7 +11,7 @@ namespace Category.Infrastructure.Data
 {
     public partial class ApplicationDbContext : DbContext
     {
-        public virtual DbSet<Categories> category { get; set; } = null;
+        public virtual DbSet<Categories> Categories { get; set; } = null;
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) :
             base(options)
@@ -23,7 +23,7 @@ namespace Category.Infrastructure.Data
         {
             modelBuilder.Entity<Categories>(entity =>
             {
-                entity.HasKey(c => new { c.categoryId });
+                entity.HasKey(c => new { c.categoriesId });
 
                 entity.HasIndex(c => new { c.name }).IsUnique();
             });

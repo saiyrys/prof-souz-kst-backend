@@ -31,9 +31,14 @@ namespace EventIntermediate.Infrastructure.Repository
                 .FirstOrDefault(ec => ec.eventId == )
         }*/
 
-        Task GetEventsWithCategories(string eventId)
+        public async Task GetEventsWithCategories(string eventId)
         {
             throw new NotImplementedException();
         }
+
+        /*Task IEventCategoriesRepository.GetEventsWithCategories(string eventId)
+        {
+            throw new NotImplementedException();
+        }*/
     }
 }

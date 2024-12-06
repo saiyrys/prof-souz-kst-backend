@@ -1,0 +1,15 @@
+C:\Users\Павел\Desktop\Profunion\src\Events\Events.Domain\bin\Debug\net6.0\Events.Domain.deps.json
+C:\Users\Павел\Desktop\Profunion\src\Events\Events.Domain\bin\Debug\net6.0\Events.Domain.dll
+C:\Users\Павел\Desktop\Profunion\src\Events\Events.Domain\bin\Debug\net6.0\Events.Domain.pdb
+C:\Users\Павел\Desktop\Profunion\src\Events\Events.Domain\bin\Debug\net6.0\Events.Shared.dll
+C:\Users\Павел\Desktop\Profunion\src\Events\Events.Domain\bin\Debug\net6.0\Events.Shared.pdb
+C:\Users\Павел\Desktop\Profunion\src\Events\Events.Domain\obj\Debug\net6.0\Events.Domain.csproj.AssemblyReference.cache
+C:\Users\Павел\Desktop\Profunion\src\Events\Events.Domain\obj\Debug\net6.0\Events.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Павел\Desktop\Profunion\src\Events\Events.Domain\obj\Debug\net6.0\Events.Domain.AssemblyInfoInputs.cache
+C:\Users\Павел\Desktop\Profunion\src\Events\Events.Domain\obj\Debug\net6.0\Events.Domain.AssemblyInfo.cs
+C:\Users\Павел\Desktop\Profunion\src\Events\Events.Domain\obj\Debug\net6.0\Events.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Павел\Desktop\Profunion\src\Events\Events.Domain\obj\Debug\net6.0\Events.D.33E6B4BB.Up2Date
+C:\Users\Павел\Desktop\Profunion\src\Events\Events.Domain\obj\Debug\net6.0\Events.Domain.dll
+C:\Users\Павел\Desktop\Profunion\src\Events\Events.Domain\obj\Debug\net6.0\refint\Events.Domain.dll
+C:\Users\Павел\Desktop\Profunion\src\Events\Events.Domain\obj\Debug\net6.0\Events.Domain.pdb
+C:\Users\Павел\Desktop\Profunion\src\Events\Events.Domain\obj\Debug\net6.0\ref\Events.Domain.dll

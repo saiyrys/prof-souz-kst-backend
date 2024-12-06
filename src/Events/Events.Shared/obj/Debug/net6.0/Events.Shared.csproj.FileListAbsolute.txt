@@ -1,0 +1,11 @@
+C:\Users\Павел\Desktop\Profunion\src\Events\Events.Shared\bin\Debug\net6.0\Events.Shared.deps.json
+C:\Users\Павел\Desktop\Profunion\src\Events\Events.Shared\bin\Debug\net6.0\Events.Shared.dll
+C:\Users\Павел\Desktop\Profunion\src\Events\Events.Shared\bin\Debug\net6.0\Events.Shared.pdb
+C:\Users\Павел\Desktop\Profunion\src\Events\Events.Shared\obj\Debug\net6.0\Events.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Павел\Desktop\Profunion\src\Events\Events.Shared\obj\Debug\net6.0\Events.Shared.AssemblyInfoInputs.cache
+C:\Users\Павел\Desktop\Profunion\src\Events\Events.Shared\obj\Debug\net6.0\Events.Shared.AssemblyInfo.cs
+C:\Users\Павел\Desktop\Profunion\src\Events\Events.Shared\obj\Debug\net6.0\Events.Shared.csproj.CoreCompileInputs.cache
+C:\Users\Павел\Desktop\Profunion\src\Events\Events.Shared\obj\Debug\net6.0\Events.Shared.dll
+C:\Users\Павел\Desktop\Profunion\src\Events\Events.Shared\obj\Debug\net6.0\refint\Events.Shared.dll
+C:\Users\Павел\Desktop\Profunion\src\Events\Events.Shared\obj\Debug\net6.0\Events.Shared.pdb
+C:\Users\Павел\Desktop\Profunion\src\Events\Events.Shared\obj\Debug\net6.0\ref\Events.Shared.dll

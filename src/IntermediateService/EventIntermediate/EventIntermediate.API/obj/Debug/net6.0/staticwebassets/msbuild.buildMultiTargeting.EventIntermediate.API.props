@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\EventIntermediate.API.props" />
+</Project>

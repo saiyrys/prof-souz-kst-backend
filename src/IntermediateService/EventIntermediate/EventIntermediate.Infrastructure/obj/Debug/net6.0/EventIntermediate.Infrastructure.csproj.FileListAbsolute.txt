@@ -1,0 +1,12 @@
+C:\Users\Павел\Desktop\Profunion\src\IntermediateService\EventIntermediate\EventIntermediate.Infrastructure\bin\Debug\net6.0\EventIntermediate.Infrastructure.deps.json
+C:\Users\Павел\Desktop\Profunion\src\IntermediateService\EventIntermediate\EventIntermediate.Infrastructure\bin\Debug\net6.0\EventIntermediate.Infrastructure.dll
+C:\Users\Павел\Desktop\Profunion\src\IntermediateService\EventIntermediate\EventIntermediate.Infrastructure\bin\Debug\net6.0\EventIntermediate.Infrastructure.pdb
+C:\Users\Павел\Desktop\Profunion\src\IntermediateService\EventIntermediate\EventIntermediate.Infrastructure\obj\Debug\net6.0\EventIntermediate.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Павел\Desktop\Profunion\src\IntermediateService\EventIntermediate\EventIntermediate.Infrastructure\obj\Debug\net6.0\EventIntermediate.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Павел\Desktop\Profunion\src\IntermediateService\EventIntermediate\EventIntermediate.Infrastructure\obj\Debug\net6.0\EventIntermediate.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Павел\Desktop\Profunion\src\IntermediateService\EventIntermediate\EventIntermediate.Infrastructure\obj\Debug\net6.0\EventIntermediate.Infrastructure.AssemblyInfo.cs
+C:\Users\Павел\Desktop\Profunion\src\IntermediateService\EventIntermediate\EventIntermediate.Infrastructure\obj\Debug\net6.0\EventIntermediate.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Павел\Desktop\Profunion\src\IntermediateService\EventIntermediate\EventIntermediate.Infrastructure\obj\Debug\net6.0\EventIntermediate.Infrastructure.dll
+C:\Users\Павел\Desktop\Profunion\src\IntermediateService\EventIntermediate\EventIntermediate.Infrastructure\obj\Debug\net6.0\refint\EventIntermediate.Infrastructure.dll
+C:\Users\Павел\Desktop\Profunion\src\IntermediateService\EventIntermediate\EventIntermediate.Infrastructure\obj\Debug\net6.0\EventIntermediate.Infrastructure.pdb
+C:\Users\Павел\Desktop\Profunion\src\IntermediateService\EventIntermediate\EventIntermediate.Infrastructure\obj\Debug\net6.0\ref\EventIntermediate.Infrastructure.dll

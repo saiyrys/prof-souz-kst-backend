@@ -1,0 +1,23 @@
+{
+  "Version": 1,
+  "Hash": "nk2mCQhQgMgFfcUXtdTsJHeb6y27qZofZ7Ewbii7Lg0=",
+  "Source": "Events.API",
+  "BasePath": "_content/Events.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Users\\Павел\\Desktop\\Profunion\\src\\IntermediateService\\EventIntermediate\\EventIntermediate.API\\EventIntermediate.API.csproj",
+      "Version": 2,
+      "Source": "EventIntermediate.API",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

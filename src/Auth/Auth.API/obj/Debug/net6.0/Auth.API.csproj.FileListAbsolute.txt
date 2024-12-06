@@ -1,3 +1,5 @@
+C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\bin\Debug\net6.0\appsettings.json
 C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\bin\Debug\net6.0\Auth.API.exe
 C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\bin\Debug\net6.0\Auth.API.deps.json
 C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\bin\Debug\net6.0\Auth.API.runtimeconfig.json
@@ -6,6 +8,7 @@ C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\bin\Debug\net6.0\Auth.AP
 C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\bin\Debug\net6.0\AutoMapper.dll
 C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\bin\Debug\net6.0\Konscious.Security.Cryptography.Argon2.dll
 C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\bin\Debug\net6.0\Konscious.Security.Cryptography.Blake2.dll
+C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
 C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
@@ -19,6 +22,8 @@ C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\bin\Debug\net6.0\Microso
 C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
 C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
 C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\bin\Debug\net6.0\Microsoft.OpenApi.dll
 C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\bin\Debug\net6.0\Newtonsoft.Json.dll
@@ -63,8 +68,3 @@ C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\obj\Debug\net6.0\refint\
 C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\obj\Debug\net6.0\Auth.API.pdb
 C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\obj\Debug\net6.0\Auth.API.genruntimeconfig.cache
 C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\obj\Debug\net6.0\ref\Auth.API.dll
-C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
-C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\bin\Debug\net6.0\appsettings.Development.json
-C:\Users\Павел\Desktop\Profunion\src\Auth\Auth.API\bin\Debug\net6.0\appsettings.json

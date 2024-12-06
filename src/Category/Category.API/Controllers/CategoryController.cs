@@ -7,7 +7,7 @@ using SendGrid.Helpers.Errors.Model;
 
 namespace Category.API.Controllers
 {
-    [Route("api/controller")]
+    [Route("api/[controller]")]
     [ApiController]
     public class CategoryController : Controller
     {

@@ -246,33 +246,6 @@
         "build": {
           "buildTransitive/netcoreapp3.1/_._": {}
         }
-      },
-      "Category.Infrastructure/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore": "6.0.33"
-        },
-        "compile": {
-          "bin/placeholder/Category.Infrastructure.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Category.Infrastructure.dll": {}
-        }
-      },
-      "Events.Infrastructure/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Category.Infrastructure": "1.0.0",
-          "Microsoft.EntityFrameworkCore": "6.0.33"
-        },
-        "compile": {
-          "bin/placeholder/Events.Infrastructure.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Events.Infrastructure.dll": {}
-        }
       }
     }
   },
@@ -599,21 +572,11 @@
         "system.runtime.compilerservices.unsafe.nuspec",
         "useSharedDesignerContext.txt"
       ]
-    },
-    "Category.Infrastructure/1.0.0": {
-      "type": "project",
-      "path": "../../../Category/Category.Infrastructure/Category.Infrastructure.csproj",
-      "msbuildProject": "../../../Category/Category.Infrastructure/Category.Infrastructure.csproj"
-    },
-    "Events.Infrastructure/1.0.0": {
-      "type": "project",
-      "path": "../../../Events/Events.Infrastructure/Events.Infrastructure.csproj",
-      "msbuildProject": "../../../Events/Events.Infrastructure/Events.Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Events.Infrastructure >= 1.0.0"
+      "Microsoft.EntityFrameworkCore >= 6.0.33"
     ]
   },
   "packageFolders": {
@@ -648,11 +611,7 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {
-            "C:\\Users\\Павел\\Desktop\\Profunion\\src\\Events\\Events.Infrastructure\\Events.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\Павел\\Desktop\\Profunion\\src\\Events\\Events.Infrastructure\\Events.Infrastructure.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {
@@ -669,6 +628,12 @@
     "frameworks": {
       "net6.0": {
         "targetAlias": "net6.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[6.0.33, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

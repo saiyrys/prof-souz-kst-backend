@@ -9,7 +9,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{3C318AF9
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution items", "solution items", "{DDF1425F-DECB-4811-AE9C-BBCC67ADBFD6}"
 	ProjectSection(SolutionItems) = preProject
-		src\Web\Dockerfile = src\Web\Dockerfile
+		src\Auth\Auth.API\Dockerfile = src\Auth\Auth.API\Dockerfile
+		src\Auth\Auth.API\Dockerfile.original = src\Auth\Auth.API\Dockerfile.original
+		supervisord.conf = supervisord.conf
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Users", "Users", "{DCEEE20B-70C2-40E1-855B-5BF3AA8F28CA}"
@@ -61,6 +63,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EventIntermediate", "EventIntermediate", "{48405DFF-F9DD-43F9-9957-819CB8E8985D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventIntermediate.Infrastructure", "src\IntermediateService\EventIntermediate\EventIntermediate.Infrastructure\EventIntermediate.Infrastructure.csproj", "{BF0785A9-FD66-43D3-9B35-873F4EE16080}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventIntermediate.API", "src\IntermediateService\EventIntermediate\EventIntermediate.API\EventIntermediate.API.csproj", "{45EC5E57-A387-49F7-B88D-1C6061B6FF8C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Events.Shared", "src\Events\Events.Shared\Events.Shared.csproj", "{E3962A46-FB2F-480D-A525-8D3572DFD553}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -140,6 +146,14 @@ Global
 		{BF0785A9-FD66-43D3-9B35-873F4EE16080}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF0785A9-FD66-43D3-9B35-873F4EE16080}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF0785A9-FD66-43D3-9B35-873F4EE16080}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45EC5E57-A387-49F7-B88D-1C6061B6FF8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45EC5E57-A387-49F7-B88D-1C6061B6FF8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45EC5E57-A387-49F7-B88D-1C6061B6FF8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45EC5E57-A387-49F7-B88D-1C6061B6FF8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3962A46-FB2F-480D-A525-8D3572DFD553}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3962A46-FB2F-480D-A525-8D3572DFD553}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3962A46-FB2F-480D-A525-8D3572DFD553}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3962A46-FB2F-480D-A525-8D3572DFD553}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -170,6 +184,8 @@ Global
 		{9927EF4D-D80D-4287-95B8-55D554C0FAB0} = {B10F2FCB-697A-4090-996C-57D1841181DF}
 		{48405DFF-F9DD-43F9-9957-819CB8E8985D} = {9927EF4D-D80D-4287-95B8-55D554C0FAB0}
 		{BF0785A9-FD66-43D3-9B35-873F4EE16080} = {48405DFF-F9DD-43F9-9957-819CB8E8985D}
+		{45EC5E57-A387-49F7-B88D-1C6061B6FF8C} = {48405DFF-F9DD-43F9-9957-819CB8E8985D}
+		{E3962A46-FB2F-480D-A525-8D3572DFD553} = {AB52B46D-3E0C-47D7-BAEE-7791628AE865}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6B55CF85-E79B-43AB-8DA6-9F4D0B74CC07}

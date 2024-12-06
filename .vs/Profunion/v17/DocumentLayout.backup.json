@@ -3,36 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\\u041F\u0430\u0432\u0435\u043B\\Desktop\\Profunion\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{626C3E7B-D3B3-4779-90FF-C40774A5B016}|src\\IntermediateService\\EventCategories\\EventCategories.Infrastructure\\EventIntermediate.Infrastructure.csproj|c:\\users\\\u043F\u0430\u0432\u0435\u043B\\desktop\\profunion\\src\\intermediateservice\\eventcategories\\eventcategories.infrastructure\\eventintermediate.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{626C3E7B-D3B3-4779-90FF-C40774A5B016}|src\\IntermediateService\\EventCategories\\EventCategories.Infrastructure\\EventIntermediate.Infrastructure.csproj|solutionrelative:src\\intermediateservice\\eventcategories\\eventcategories.infrastructure\\eventintermediate.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{A1E1BD34-6D83-4F01-9083-09C9D9C25934}|src\\Events\\Events.Application\\Events.Application.csproj|c:\\users\\\u043F\u0430\u0432\u0435\u043B\\desktop\\profunion\\src\\events\\events.application\\services\\eventservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1E1BD34-6D83-4F01-9083-09C9D9C25934}|src\\Events\\Events.Application\\Events.Application.csproj|solutionrelative:src\\events\\events.application\\services\\eventservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{626C3E7B-D3B3-4779-90FF-C40774A5B016}|src\\IntermediateService\\EventCategories\\EventCategories.Infrastructure\\EventCategories.Infrastructure.csproj|c:\\users\\\u043F\u0430\u0432\u0435\u043B\\desktop\\profunion\\src\\intermediateservice\\eventcategories\\eventcategories.infrastructure\\models\\eventcategories.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{626C3E7B-D3B3-4779-90FF-C40774A5B016}|src\\IntermediateService\\EventCategories\\EventCategories.Infrastructure\\EventCategories.Infrastructure.csproj|solutionrelative:src\\intermediateservice\\eventcategories\\eventcategories.infrastructure\\models\\eventcategories.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C02DCD6F-B713-44E2-9CA2-26A489EB0D23}|src\\Events\\Events.Infrastructure\\Events.Infrastructure.csproj|c:\\users\\\u043F\u0430\u0432\u0435\u043B\\desktop\\profunion\\src\\events\\events.infrastructure\\messaging\\consumer\\eventconsumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C02DCD6F-B713-44E2-9CA2-26A489EB0D23}|src\\Events\\Events.Infrastructure\\Events.Infrastructure.csproj|solutionrelative:src\\events\\events.infrastructure\\messaging\\consumer\\eventconsumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{626C3E7B-D3B3-4779-90FF-C40774A5B016}|src\\IntermediateService\\EventCategories\\EventCategories.Infrastructure\\EventIntermediate.Infrastructure.csproj|c:\\users\\\u043F\u0430\u0432\u0435\u043B\\desktop\\profunion\\src\\intermediateservice\\eventcategories\\eventcategories.infrastructure\\repository\\ieventcategoriesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{626C3E7B-D3B3-4779-90FF-C40774A5B016}|src\\IntermediateService\\EventCategories\\EventCategories.Infrastructure\\EventIntermediate.Infrastructure.csproj|solutionrelative:src\\intermediateservice\\eventcategories\\eventcategories.infrastructure\\repository\\ieventcategoriesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C02DCD6F-B713-44E2-9CA2-26A489EB0D23}|src\\Events\\Events.Infrastructure\\Events.Infrastructure.csproj|c:\\users\\\u043F\u0430\u0432\u0435\u043B\\desktop\\profunion\\src\\events\\events.infrastructure\\cacheservice\\eventcache.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C02DCD6F-B713-44E2-9CA2-26A489EB0D23}|src\\Events\\Events.Infrastructure\\Events.Infrastructure.csproj|solutionrelative:src\\events\\events.infrastructure\\cacheservice\\eventcache.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C02DCD6F-B713-44E2-9CA2-26A489EB0D23}|src\\Events\\Events.Infrastructure\\Events.Infrastructure.csproj|c:\\users\\\u043F\u0430\u0432\u0435\u043B\\desktop\\profunion\\src\\events\\events.infrastructure\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C02DCD6F-B713-44E2-9CA2-26A489EB0D23}|src\\Events\\Events.Infrastructure\\Events.Infrastructure.csproj|solutionrelative:src\\events\\events.infrastructure\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C02DCD6F-B713-44E2-9CA2-26A489EB0D23}|src\\Events\\Events.Infrastructure\\Events.Infrastructure.csproj|c:\\users\\\u043F\u0430\u0432\u0435\u043B\\desktop\\profunion\\src\\events\\events.infrastructure\\repository\\eventrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C02DCD6F-B713-44E2-9CA2-26A489EB0D23}|src\\Events\\Events.Infrastructure\\Events.Infrastructure.csproj|solutionrelative:src\\events\\events.infrastructure\\repository\\eventrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C02DCD6F-B713-44E2-9CA2-26A489EB0D23}|src\\Events\\Events.Infrastructure\\Events.Infrastructure.csproj|c:\\users\\\u043F\u0430\u0432\u0435\u043B\\desktop\\profunion\\src\\events\\events.infrastructure\\repository\\ieventrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C02DCD6F-B713-44E2-9CA2-26A489EB0D23}|src\\Events\\Events.Infrastructure\\Events.Infrastructure.csproj|solutionrelative:src\\events\\events.infrastructure\\repository\\ieventrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C02DCD6F-B713-44E2-9CA2-26A489EB0D23}|src\\Events\\Events.Infrastructure\\Events.Infrastructure.csproj|c:\\users\\\u043F\u0430\u0432\u0435\u043B\\desktop\\profunion\\src\\events\\events.infrastructure\\models\\geteventdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C02DCD6F-B713-44E2-9CA2-26A489EB0D23}|src\\Events\\Events.Infrastructure\\Events.Infrastructure.csproj|solutionrelative:src\\events\\events.infrastructure\\models\\geteventdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{22B0D721-2F35-4965-BABF-956D35F8A6E3}|src\\Events\\Events.Domain\\Events.Domain.csproj|c:\\users\\\u043F\u0430\u0432\u0435\u043B\\desktop\\profunion\\src\\events\\events.domain\\builder\\eventbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{22B0D721-2F35-4965-BABF-956D35F8A6E3}|src\\Events\\Events.Domain\\Events.Domain.csproj|solutionrelative:src\\events\\events.domain\\builder\\eventbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{45EC5E57-A387-49F7-B88D-1C6061B6FF8C}|src\\IntermediateService\\EventIntermediate\\EventIntermediate.API\\EventIntermediate.API.csproj|c:\\users\\\u043F\u0430\u0432\u0435\u043B\\desktop\\profunion\\src\\intermediateservice\\eventintermediate\\eventintermediate.api\\consumers\\eventconsumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45EC5E57-A387-49F7-B88D-1C6061B6FF8C}|src\\IntermediateService\\EventIntermediate\\EventIntermediate.API\\EventIntermediate.API.csproj|solutionrelative:src\\intermediateservice\\eventintermediate\\eventintermediate.api\\consumers\\eventconsumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,106 +34,54 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EventConsumer.cs",
+              "DocumentMoniker": "C:\\Users\\\u041F\u0430\u0432\u0435\u043B\\Desktop\\Profunion\\src\\Events\\Events.Infrastructure\\Messaging\\Consumer\\EventConsumer.cs",
+              "RelativeDocumentMoniker": "src\\Events\\Events.Infrastructure\\Messaging\\Consumer\\EventConsumer.cs",
+              "ToolTip": "C:\\Users\\\u041F\u0430\u0432\u0435\u043B\\Desktop\\Profunion\\src\\Events\\Events.Infrastructure\\Messaging\\Consumer\\EventConsumer.cs",
+              "RelativeToolTip": "src\\Events\\Events.Infrastructure\\Messaging\\Consumer\\EventConsumer.cs",
+              "ViewState": "AgIAACwAAAAAAAAAAAAAAF8AAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-06T10:42:41.434Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "EventIntermediate.Infrastructure",
-              "DocumentMoniker": "C:\\Users\\\u041F\u0430\u0432\u0435\u043B\\Desktop\\Profunion\\src\\IntermediateService\\EventCategories\\EventCategories.Infrastructure\\EventIntermediate.Infrastructure.csproj",
-              "RelativeDocumentMoniker": "src\\IntermediateService\\EventCategories\\EventCategories.Infrastructure\\EventIntermediate.Infrastructure.csproj",
-              "ToolTip": "C:\\Users\\\u041F\u0430\u0432\u0435\u043B\\Desktop\\Profunion\\src\\IntermediateService\\EventCategories\\EventCategories.Infrastructure\\EventIntermediate.Infrastructure.csproj*",
-              "RelativeToolTip": "src\\IntermediateService\\EventCategories\\EventCategories.Infrastructure\\EventIntermediate.Infrastructure.csproj*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-10-26T20:35:07.32Z",
+              "Title": "EventService.cs",
+              "DocumentMoniker": "C:\\Users\\\u041F\u0430\u0432\u0435\u043B\\Desktop\\Profunion\\src\\Events\\Events.Application\\Services\\EventService.cs",
+              "RelativeDocumentMoniker": "src\\Events\\Events.Application\\Services\\EventService.cs",
+              "ToolTip": "C:\\Users\\\u041F\u0430\u0432\u0435\u043B\\Desktop\\Profunion\\src\\Events\\Events.Application\\Services\\EventService.cs",
+              "RelativeToolTip": "src\\Events\\Events.Application\\Services\\EventService.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAvwDsAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-06T10:41:19.919Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "IEventCategoriesRepository.cs",
-              "DocumentMoniker": "C:\\Users\\\u041F\u0430\u0432\u0435\u043B\\Desktop\\Profunion\\src\\IntermediateService\\EventCategories\\EventCategories.Infrastructure\\Repository\\IEventCategoriesRepository.cs",
-              "RelativeDocumentMoniker": "src\\IntermediateService\\EventCategories\\EventCategories.Infrastructure\\Repository\\IEventCategoriesRepository.cs",
-              "ToolTip": "C:\\Users\\\u041F\u0430\u0432\u0435\u043B\\Desktop\\Profunion\\src\\IntermediateService\\EventCategories\\EventCategories.Infrastructure\\Repository\\IEventCategoriesRepository.cs*",
-              "RelativeToolTip": "src\\IntermediateService\\EventCategories\\EventCategories.Infrastructure\\Repository\\IEventCategoriesRepository.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Title": "EventCache.cs",
+              "DocumentMoniker": "C:\\Users\\\u041F\u0430\u0432\u0435\u043B\\Desktop\\Profunion\\src\\Events\\Events.Infrastructure\\CacheService\\EventCache.cs",
+              "RelativeDocumentMoniker": "src\\Events\\Events.Infrastructure\\CacheService\\EventCache.cs",
+              "ToolTip": "C:\\Users\\\u041F\u0430\u0432\u0435\u043B\\Desktop\\Profunion\\src\\Events\\Events.Infrastructure\\CacheService\\EventCache.cs",
+              "RelativeToolTip": "src\\Events\\Events.Infrastructure\\CacheService\\EventCache.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAADEAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-26T20:30:46.26Z",
+              "WhenOpened": "2024-12-06T10:40:42.901Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\\u041F\u0430\u0432\u0435\u043B\\Desktop\\Profunion\\src\\Events\\Events.Infrastructure\\Data\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "src\\Events\\Events.Infrastructure\\Data\\ApplicationDbContext.cs",
-              "ToolTip": "C:\\Users\\\u041F\u0430\u0432\u0435\u043B\\Desktop\\Profunion\\src\\Events\\Events.Infrastructure\\Data\\ApplicationDbContext.cs",
-              "RelativeToolTip": "src\\Events\\Events.Infrastructure\\Data\\ApplicationDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
+              "Title": "EventConsumer.cs",
+              "DocumentMoniker": "C:\\Users\\\u041F\u0430\u0432\u0435\u043B\\Desktop\\Profunion\\src\\IntermediateService\\EventIntermediate\\EventIntermediate.API\\Consumers\\EventConsumer.cs",
+              "RelativeDocumentMoniker": "src\\IntermediateService\\EventIntermediate\\EventIntermediate.API\\Consumers\\EventConsumer.cs",
+              "ToolTip": "C:\\Users\\\u041F\u0430\u0432\u0435\u043B\\Desktop\\Profunion\\src\\IntermediateService\\EventIntermediate\\EventIntermediate.API\\Consumers\\EventConsumer.cs",
+              "RelativeToolTip": "src\\IntermediateService\\EventIntermediate\\EventIntermediate.API\\Consumers\\EventConsumer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-26T20:26:44.297Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "EventCategories.cs",
-              "DocumentMoniker": "C:\\Users\\\u041F\u0430\u0432\u0435\u043B\\Desktop\\Profunion\\src\\IntermediateService\\EventCategories\\EventCategories.Infrastructure\\Models\\EventCategories.cs",
-              "RelativeDocumentMoniker": "src\\IntermediateService\\EventCategories\\EventCategories.Infrastructure\\Models\\EventCategories.cs",
-              "ToolTip": "C:\\Users\\\u041F\u0430\u0432\u0435\u043B\\Desktop\\Profunion\\src\\IntermediateService\\EventCategories\\EventCategories.Infrastructure\\Models\\EventCategories.cs",
-              "RelativeToolTip": "src\\IntermediateService\\EventCategories\\EventCategories.Infrastructure\\Models\\EventCategories.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-26T10:59:32.567Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "EventBuilder.cs",
-              "DocumentMoniker": "C:\\Users\\\u041F\u0430\u0432\u0435\u043B\\Desktop\\Profunion\\src\\Events\\Events.Domain\\Builder\\EventBuilder.cs",
-              "RelativeDocumentMoniker": "src\\Events\\Events.Domain\\Builder\\EventBuilder.cs",
-              "ToolTip": "C:\\Users\\\u041F\u0430\u0432\u0435\u043B\\Desktop\\Profunion\\src\\Events\\Events.Domain\\Builder\\EventBuilder.cs",
-              "RelativeToolTip": "src\\Events\\Events.Domain\\Builder\\EventBuilder.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-26T10:49:34.097Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "EventRepository.cs",
-              "DocumentMoniker": "C:\\Users\\\u041F\u0430\u0432\u0435\u043B\\Desktop\\Profunion\\src\\Events\\Events.Infrastructure\\Repository\\EventRepository.cs",
-              "RelativeDocumentMoniker": "src\\Events\\Events.Infrastructure\\Repository\\EventRepository.cs",
-              "ToolTip": "C:\\Users\\\u041F\u0430\u0432\u0435\u043B\\Desktop\\Profunion\\src\\Events\\Events.Infrastructure\\Repository\\EventRepository.cs",
-              "RelativeToolTip": "src\\Events\\Events.Infrastructure\\Repository\\EventRepository.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAgwCgAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-26T10:46:10.719Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "GetEventDto.cs",
-              "DocumentMoniker": "C:\\Users\\\u041F\u0430\u0432\u0435\u043B\\Desktop\\Profunion\\src\\Events\\Events.Infrastructure\\Models\\GetEventDto.cs",
-              "RelativeDocumentMoniker": "src\\Events\\Events.Infrastructure\\Models\\GetEventDto.cs",
-              "ToolTip": "C:\\Users\\\u041F\u0430\u0432\u0435\u043B\\Desktop\\Profunion\\src\\Events\\Events.Infrastructure\\Models\\GetEventDto.cs",
-              "RelativeToolTip": "src\\Events\\Events.Infrastructure\\Models\\GetEventDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-26T10:45:13.212Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "IEventRepository.cs",
-              "DocumentMoniker": "C:\\Users\\\u041F\u0430\u0432\u0435\u043B\\Desktop\\Profunion\\src\\Events\\Events.Infrastructure\\Repository\\IEventRepository.cs",
-              "RelativeDocumentMoniker": "src\\Events\\Events.Infrastructure\\Repository\\IEventRepository.cs",
-              "ToolTip": "C:\\Users\\\u041F\u0430\u0432\u0435\u043B\\Desktop\\Profunion\\src\\Events\\Events.Infrastructure\\Repository\\IEventRepository.cs",
-              "RelativeToolTip": "src\\Events\\Events.Infrastructure\\Repository\\IEventRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-26T10:44:51.916Z",
+              "WhenOpened": "2024-12-06T10:18:47.362Z",
               "EditorCaption": ""
             }
           ]

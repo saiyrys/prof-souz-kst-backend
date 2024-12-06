@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "VTXXBehuSHvJiQ5c+YeKdvXOe5kZBUuc7QhFbFHtn/U=",
+  "Source": "EventIntermediate.API",
+  "BasePath": "_content/EventIntermediate.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
