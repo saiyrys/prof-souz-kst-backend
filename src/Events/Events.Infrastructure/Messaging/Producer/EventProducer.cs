@@ -40,5 +40,16 @@ namespace Events.Infrastructure.Messaging.Producer
                 Console.WriteLine($"Error sending message to Kafka: {ex.Message}");
             }
         }
+
+        public async Task RequestForEventCategory(string eventId, CancellationToken cancellation)
+        {
+            var message = new Message<string, string>
+            {
+                Key = eventId,
+                Value = "get-category"
+            };
+
+            await _producer.ProduceAsync(_topic, message, cancellation);
+        }
     }
 }

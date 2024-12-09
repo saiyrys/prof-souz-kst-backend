@@ -58,5 +58,22 @@ namespace Events.API.Controllers
 
             return Ok(result);
         }
+
+        [HttpGet("eventId")]
+        /*[Authorize(Roles = "ADMIN, MODER")]*/
+        [ProducesResponseType(typeof(IEnumerable<GetEventDto>), 200)]
+        [ProducesResponseType(500)]
+        public async Task<IActionResult> GetEventsById(string eventId, CancellationToken cancellation)
+        {
+            var result = await _eventService.GetEventsByID(eventId, cancellation);
+
+            /*if (!result)
+            {
+                return StatusCode(500, "Ошибка при создании мероприятия");
+            }*/
+
+
+            return Ok(result);
+        }
     }
 }

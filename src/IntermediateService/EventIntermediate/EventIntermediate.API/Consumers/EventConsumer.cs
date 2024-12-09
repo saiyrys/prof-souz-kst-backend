@@ -1,4 +1,5 @@
-﻿using Confluent.Kafka;
+﻿using Category.Infrastructure.Models;
+using Confluent.Kafka;
 using EventIntermediate.Infrastructure.Data;
 using EventIntermediate.Infrastructure.Models;
 using Events.Domain.Models;
@@ -97,13 +98,34 @@ namespace EventIntermediate.API.Consumers
                     categories = g.Select(ec => ec.categoriesId).ToList()
                 }).ToList();
 
-            var responsePayload = new
+            /*var responsePayload = new
             {
                 Events = group
-            };
+            };*/
 
             var serialize = JsonSerializer.Serialize(group);
             Console.WriteLine("Serialized Response Payload: " + serialize);
+
+            await _producer.ProduceAsync(_responseTopic, new Message<string, string>
+            {
+                Key = Guid.NewGuid().ToString(),
+                Value = serialize
+            });
+        }
+
+        private async Task GetCategoryForEvent(ConsumeResult<string, string> message, CancellationToken cancellation)
+        {
+            var eventCategory = await _context.EventCategories.AsNoTracking().ToListAsync();
+
+            var group = eventCategory
+                .GroupBy(ec => ec.eventId)
+                .Select(g => new
+                {
+                    eventId = g.Where(ec => ec.eventId == message.Message.Key).FirstOrDefault(),
+                    categories = g.Select(ec => ec.categoriesId).ToList()
+                });
+
+            var serialize = JsonSerializer.Serialize(group);
 
             await _producer.ProduceAsync(_responseTopic, new Message<string, string>
             {

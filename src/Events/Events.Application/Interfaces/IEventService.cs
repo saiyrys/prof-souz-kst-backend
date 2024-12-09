@@ -11,7 +11,7 @@ namespace Events.Application.Interfaces
     {
         Task<IEnumerable<GetEventDto>> GetEvents(EventFilterDto filter, CancellationToken cancellation);
         /*        Task<ICollection<GetEventDto>> GetEventsWithCategory();*/
-        Task<GetEventDto> GetEventsByID(string eventId);
+        Task<GetEventDto> GetEventsByID(string eventId, CancellationToken cancellation);
         /*        Task<bool> confirmLink(string eventId);*/
         Task<bool> CreateEvents(CreateEventDto eventsCreate);
         /*        Task<bool> UpdateEvents(string eventId, UpdateEventDto updateEvent);*/

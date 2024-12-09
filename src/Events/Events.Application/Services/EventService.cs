@@ -8,6 +8,7 @@ using Events.Infrastructure.Data.Repository;
 using Events.Infrastructure.Messaging.Consumer;
 using Events.Infrastructure.Messaging.Producer;
 using Events.Shared.Dto;
+using Microsoft.Extensions.Logging;
 using Polly;
 using System.Text.Json;
 
@@ -42,12 +43,10 @@ namespace Events.Application.Services
         {
             int page = 1;
 
-            await _eventProducer.RequestAllCategories(cancellation);
-
-            await _consumer.WaitForCacheUpdateAsync(cancellation);
-
+            await RequestCategory(null, cancellation);
+            
             var events = await _eventRepository.GetEvents();
-
+            
             var eventCategory = _consumer.GetDataCache();
 
             var eventDtos = events.Select(e =>
@@ -73,9 +72,35 @@ namespace Events.Application.Services
 
             return eventDtos;
         } 
-        public async Task<GetEventDto> GetEventsByID(string eventId)
+        public async Task<GetEventDto> GetEventsByID(string eventId, CancellationToken cancellation)
         {
-            throw new ArgumentException();
+            var @event = await _eventRepository.GetEventById(eventId);
+
+            await RequestCategory(eventId, cancellation);
+
+            var eventCategory = _consumer.GetDataCache();
+
+            var categories = eventCategory.ContainsKey(@event.EventId)
+                    ? eventCategory[@event.EventId]
+                    : new List<string>();
+
+            var eventDto = new GetEventDto
+            {
+                    eventId = @event.EventId,
+                    title = @event.Title,
+                    organizer = @event.Organizer,
+                    description = @event.Description,
+                    eventDate = @event.EventDate.ToShortDateString(),
+                    link = @event.Link,
+                    totalTickets = @event.TotalTickets,
+                    createdAt = @event.CreatedAt.ToShortDateString(),
+                    updatedAt = @event.UpdatedAt.ToShortDateString(),
+                    categories = (ICollection<string>)categories
+             };
+
+
+            return eventDto;
+
         }
 
         public async Task<bool> CreateEvents(CreateEventDto dto)
@@ -122,6 +147,20 @@ namespace Events.Application.Services
         {
             throw new NotImplementedException();
         }
+
+        private async Task RequestCategory(string? eventId, CancellationToken cancellation)
+        {
+            if (!string.IsNullOrEmpty(eventId)) {
+                await _eventProducer.RequestForEventCategory(eventId, cancellation);
+                await _consumer.WaitForCacheUpdateAsync(cancellation);    
+                return;
+            }
+            await _eventProducer.RequestAllCategories(cancellation);
+
+            await _consumer.WaitForCacheUpdateAsync(cancellation);
+        }
+
+       
         
 
        
