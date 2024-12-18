@@ -13,8 +13,8 @@ namespace Events.Application.Interfaces
         /*        Task<ICollection<GetEventDto>> GetEventsWithCategory();*/
         Task<GetEventDto> GetEventsByID(string eventId, CancellationToken cancellation);
         /*        Task<bool> confirmLink(string eventId);*/
-        Task<bool> CreateEvents(CreateEventDto eventsCreate);
+        Task<bool> CreateEvents(CreateEventDto eventsCreate, CancellationToken cancellation);
         /*        Task<bool> UpdateEvents(string eventId, UpdateEventDto updateEvent);*/
-        Task<bool> DeleteEvents(string eventId);
+        Task<bool> DeleteEvents(string eventId, CancellationToken cancellation);
     }
 }

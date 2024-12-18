@@ -39,19 +39,21 @@ builder.Services.AddSingleton<EventProducer>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddSingleton<EventCache>();
+/*builder.Services.AddScoped<EventCache>();*/
 
 builder.Services.AddScoped<EventConsumer>();
-builder.Services.AddScoped<DataReadyConsumer>();
+builder.Services.AddScoped<EventDataReadyConsumer>();
 
 builder.Services.AddSingleton<IHostedService>(provider =>
 {
     var scopeFactory = provider.GetRequiredService<IServiceScopeFactory>();
-    var cacheService = provider.GetRequiredService<EventCache>();
+/*    var cacheService = provider.GetRequiredService<EventCache>();*/
     var lifeTime = provider.GetRequiredService<IHostApplicationLifetime>();
 
     return new ConsumerHostedService(scopeFactory,lifeTime);
 });
+
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
 var app = builder.Build();
 

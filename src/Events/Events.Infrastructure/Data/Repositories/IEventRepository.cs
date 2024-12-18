@@ -12,8 +12,9 @@ namespace Events.Infrastructure.Data.Repository
         Task<ICollection<GetEventDto>> SearchAndSortEvents(string search = null, string sort = null, string type = null);
 
         Task<bool> CreateEvents(Event events);
+        Task<bool> CreateEventWithTransaction(Event @event);
         Task<bool> UpdateEvents(Event events);
-        Task<bool> DeleteEvents(Event events);
+        Task<bool> DeleteEvents(string eventId);
         Task<bool> SaveEvents();
     }
 }

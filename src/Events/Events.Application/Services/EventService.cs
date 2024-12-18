@@ -8,9 +8,8 @@ using Events.Infrastructure.Data.Repository;
 using Events.Infrastructure.Messaging.Consumer;
 using Events.Infrastructure.Messaging.Producer;
 using Events.Shared.Dto;
-using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
 using Polly;
-using System.Text.Json;
 
 namespace Events.Application.Services
 {
@@ -21,17 +20,17 @@ namespace Events.Application.Services
         private readonly IMapper _mapper;
         private readonly EventConsumer _consumer;
         private readonly EventProducer _eventProducer;
-        private readonly DataReadyConsumer _dataReady;
-        private readonly EventCache _cache;
+        private readonly EventDataReadyConsumer _dataReady;
+
 
         public EventService(IProducer<string, string> producer, IEventRepository eventRepository, 
-            EventConsumer consumer, EventProducer eventProducer, DataReadyConsumer dataReady
-            , IMapper mapper, EventCache cache)
+            EventConsumer consumer, EventProducer eventProducer, EventDataReadyConsumer dataReady
+            , IMapper mapper)
         {
             _producer = producer;
             _eventRepository = eventRepository;
             _consumer = consumer;
-            _cache = cache;
+
             _eventProducer = eventProducer;
             _mapper = mapper;
 
@@ -47,7 +46,7 @@ namespace Events.Application.Services
             
             var events = await _eventRepository.GetEvents();
             
-            var eventCategory = _consumer.GetDataCache();
+            var eventCategory = EventCache.GetDataCache();
 
             var eventDtos = events.Select(e =>
             {
@@ -78,7 +77,7 @@ namespace Events.Application.Services
 
             await RequestCategory(eventId, cancellation);
 
-            var eventCategory = _consumer.GetDataCache();
+            var eventCategory = EventCache.GetDataCache();
 
             var categories = eventCategory.ContainsKey(@event.EventId)
                     ? eventCategory[@event.EventId]
@@ -103,13 +102,13 @@ namespace Events.Application.Services
 
         }
 
-        public async Task<bool> CreateEvents(CreateEventDto dto)
+        public async Task<bool> CreateEvents(CreateEventDto dto, CancellationToken cancellation)
         {
             if (string.IsNullOrEmpty(dto.link))
             {
                 dto.link = null;
             }
-            
+
             var @event = new EventBuilder()
                 .WithTitle(dto.title)
                 .WithDescription(dto.description)
@@ -119,45 +118,66 @@ namespace Events.Application.Services
                 .WithTotalTickets(dto.totalTickets)
                 .Build();
 
-            
-            var eventMessage = new MessagePayload
+
+            var eventMessage = new EventDto
             {
-                Event = @event,
-                CategoriesId = dto.categoriesId // Добавляем категории сюда
+                eventId = @event.EventId,
+                categories = dto.categoriesId.ToList() // Добавляем категории сюда
             };
 
-            var serializedMessage = JsonSerializer.Serialize(eventMessage);
+            var retryPolicy = Policy.Handle<KafkaException>()
+                 .WaitAndRetryAsync(3, retryAttempt =>
+                 TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)));
 
-            var policy = Policy.Handle<KafkaException>()
-                 .WaitAndRetryAsync(3, retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)));
 
-            await policy.ExecuteAsync(() => _producer.ProduceAsync("create-event-topic", new Message<string, string>
+            var isEventSaved = true;
+            await retryPolicy.ExecuteAsync(async () =>
             {
-                Key = @event.EventId,
-                Value = serializedMessage
-            }));
+                isEventSaved = await _eventRepository.CreateEvents(@event);
 
-            if (!await _eventRepository.CreateEvents(@event))
-                throw new ArgumentException("Ошибка создания события");
+                if (!isEventSaved)
+                    throw new Exception("Ошибка записи в таблицу");
+            });
 
+            if (!isEventSaved)
+            {
+                throw new InvalidOperationException("Не удалось записать данные после всех попыток");
+            }
+
+            try
+            {
+                await _eventProducer.SendCreateEventCategoryAsync(eventMessage);
+               
+            }
+            catch (Exception ex)
+            {
+                await _eventRepository.DeleteEvents(@event.EventId); // Откат в случае ошибки Kafka
+                throw new InvalidOperationException("Ошибка отправки в Kafka. Откат действий.", ex);
+            }
             return true;
         }
 
-        public Task<bool> DeleteEvents(string eventId)
+        public async Task<bool> DeleteEvents(string eventId, CancellationToken cancellation)
         {
-            throw new NotImplementedException();
+            await _eventProducer.RequestForDeleteEventDataAsync(eventId, cancellation);
+
+            await _consumer.WaitNotification(cancellation);
+
+            await _eventRepository.DeleteEvents(eventId);
+
+            return true;
         }
 
         private async Task RequestCategory(string? eventId, CancellationToken cancellation)
         {
             if (!string.IsNullOrEmpty(eventId)) {
                 await _eventProducer.RequestForEventCategory(eventId, cancellation);
-                await _consumer.WaitForCacheUpdateAsync(cancellation);    
+                await EventCache.WaitForCacheUpdateAsync(cancellation);    
                 return;
             }
             await _eventProducer.RequestAllCategories(cancellation);
 
-            await _consumer.WaitForCacheUpdateAsync(cancellation);
+            await EventCache.WaitForCacheUpdateAsync(cancellation);
         }
 
        

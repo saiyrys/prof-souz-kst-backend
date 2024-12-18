@@ -3,6 +3,7 @@ using Confluent.Kafka;
 using EventIntermediate.Infrastructure.Data;
 using EventIntermediate.Infrastructure.Models;
 using Events.Domain.Models;
+using Events.Shared.Dto;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
 
@@ -13,11 +14,14 @@ namespace EventIntermediate.API.Consumers
         private readonly IConsumer<string, string> _consumer;
         private readonly IProducer<string, string> _producer;
         private readonly string _createEventTopic;
-        private readonly string _getEventTopic;
+        private readonly string _getAllCategoryBundleTopic;
+        private readonly string _getCategoryForEventTopic;
+        private readonly string _deleteCategoryBundleTopic;
         private readonly string _responseTopic;
         private readonly string _dataReadyTopic;
         private readonly DataContext _context;
-        private bool _isRunning = false;
+        
+        private readonly Dictionary<string, Func<ConsumeResult<string, string>, CancellationToken, Task>> _topicHandlers;
 
         public EventConsumer(IConfiguration configuration, DataContext context)
         {
@@ -35,13 +39,21 @@ namespace EventIntermediate.API.Consumers
             };
             _producer = new ProducerBuilder<string, string>(producerConfig).Build();
 
+
             _createEventTopic = "create-event-topic";
-            _getEventTopic = "get-event-categories";
-
-            _dataReadyTopic = "data-ready";
-
+            _getAllCategoryBundleTopic = "get-event-all-categories";
+            _getCategoryForEventTopic = "get-event-categories";
+            _deleteCategoryBundleTopic = "delete-event-categories-data";
 
             _context = context;
+
+            _topicHandlers = new Dictionary<string, Func<ConsumeResult<string, string>, CancellationToken, Task>>
+            {
+                { _createEventTopic, CreateEventMessage },
+                { _getAllCategoryBundleTopic, GetAllEventMessage },
+                { _getCategoryForEventTopic, GetCategoryForEvent},
+                { _deleteCategoryBundleTopic, DeleteEventCategoryBundle }
+            };
 
             _responseTopic = "event-topic-response";
         }
@@ -49,24 +61,16 @@ namespace EventIntermediate.API.Consumers
         public async Task StartConsumingAsync(CancellationToken cancellationToken)
         {
             Console.WriteLine("Consumer started. Waiting for messages...");
-            _consumer.Subscribe(new[] { _createEventTopic, _getEventTopic });
+            _consumer.Subscribe(_topicHandlers.Keys);
             try
             {
                 while (!cancellationToken.IsCancellationRequested)
                 {
                     var message = _consumer.Consume();
 
-                    
-
-                    if (message.Topic == _createEventTopic)
+                    if(_topicHandlers.TryGetValue(message.Topic, out var handler))
                     {
-                        // Логика для обработки create-event-topic
-                        await CreateEventMessage(message, cancellationToken);
-                    }
-                    else if (message.Topic == _getEventTopic)
-                    { 
-
-                        await GetAllEventMessage(message,cancellationToken);
+                        await handler(message, cancellationToken);
                     }
                 }
             }
@@ -98,10 +102,7 @@ namespace EventIntermediate.API.Consumers
                     categories = g.Select(ec => ec.categoriesId).ToList()
                 }).ToList();
 
-            /*var responsePayload = new
-            {
-                Events = group
-            };*/
+           
 
             var serialize = JsonSerializer.Serialize(group);
             Console.WriteLine("Serialized Response Payload: " + serialize);
@@ -136,39 +137,81 @@ namespace EventIntermediate.API.Consumers
 
         private async Task CreateEventMessage(ConsumeResult<string, string> message, CancellationToken cancellationToken)
         {
-            var payload = JsonSerializer.Deserialize<MessagePayload>(message.Message.Value);
-
-            if (payload == null)
+            try
             {
-                Console.WriteLine("Received null payload.");
-                return; // Пропустить итерацию, если payload null
-            }
+                Console.WriteLine($"Received message: {message.Message.Value}");
+                var payload = JsonSerializer.Deserialize<EventDto>(message.Message.Value);
 
-            if (payload.Event != null && payload.CategoriesId != null)
-            {
-                var newEvent = payload.Event;
-                var categoriesId = payload.CategoriesId;
-
-                foreach (var categoryId in categoriesId)
+                if (payload == null)
                 {
-                    _context.EventCategories.Add(new EventCategories
-                    {
-                        eventId = newEvent.EventId,
-                        categoriesId = categoryId
-
-                    });
-
-                    await _producer.ProduceAsync(_responseTopic, new Message<string, string>
-                    {
-                        Key = newEvent.EventId,
-                        Value = categoryId
-                    });
+                    Console.WriteLine("Received null payload.");
+                    return; // Пропустить итерацию, если payload null
                 }
-                await _context.SaveChangesAsync(cancellationToken);
 
+                if (payload.eventId != null && payload.categories != null)
+                {
+                    var newEvent = payload.eventId;
+                    var categoriesId = payload.categories;
+
+                    foreach (var categoryId in categoriesId)
+                    {
+                        _context.EventCategories.Add(new EventCategories
+                        {
+                            eventId = newEvent,
+                            categoriesId = categoryId
+
+                        });
+
+                        await _producer.ProduceAsync(_responseTopic, new Message<string, string>
+                        {
+                            Key = newEvent,
+                            Value = categoryId
+                        });
+                    }
+                    await _context.SaveChangesAsync(cancellationToken);
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+                await _producer.ProduceAsync("create-event-topic", new Message<string, string>
+                {
+                    Key = Guid.NewGuid().ToString(),
+                    Value = "creation canceled"
+                });
+
+                throw new InvalidOperationException("Ошибка создание ивента: " + ex);
             }
         }
 
+        public async Task DeleteEventCategoryBundle(ConsumeResult<string, string> message, CancellationToken cancellation)
+        {
+            var eventCategory = await _context.EventCategories
+            .AsNoTracking().Where(ec => ec.eventId == message.Message.Key)
+            .ToListAsync(cancellation); 
+
+            if(eventCategory.Select(ec => ec.categoriesId) == null)
+            {
+                await _producer.ProduceAsync("event-data-delete-response", new Message<string, string>
+                {
+                    Key = message.Message.Key,
+                    Value = "category not found"
+                });
+            }
+
+            _context.EventCategories.RemoveRange(eventCategory);
+
+            await _context.SaveChangesAsync(cancellation);
+      
+            await _producer.ProduceAsync("event-data-delete-response", new Message<string, string>
+            {
+                Key = message.Message.Key,
+                Value = "event data was removed"
+            });
+
+            Console.WriteLine("Ответ отправлен");
+        }
+   
         private async Task SendReadyDataMessage()
         {
             string message = "Data ready";

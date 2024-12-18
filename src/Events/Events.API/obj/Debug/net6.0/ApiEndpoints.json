@@ -106,5 +106,27 @@
         "StatusCode": 500
       }
     ]
+  },
+  {
+    "ContainingType": "Events.API.Controllers.eventController",
+    "Method": "DeleteEventsById",
+    "RelativePath": "api/event/eventId",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "eventId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 500
+      }
+    ]
   }
 ]

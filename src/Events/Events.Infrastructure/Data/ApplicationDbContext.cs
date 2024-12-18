@@ -11,6 +11,7 @@ namespace Events.Infrastructure.Data
            base(options)
         {
             Database.EnsureCreated();
+            
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -22,14 +22,14 @@ namespace Events.API.Controllers
         /*[Authorize(Roles = "ADMIN, MODER")]*/
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
-        public async Task<IActionResult> CreateEvents(CreateEventDto eventsCreate)
+        public async Task<IActionResult> CreateEvents(CreateEventDto eventsCreate, CancellationToken cancellation)
         {
             if (eventsCreate == null)
             {
                 return BadRequest();
             }
 
-            var result = await _eventService.CreateEvents(eventsCreate);
+            var result = await _eventService.CreateEvents(eventsCreate, cancellation);
 
             if (!result)
             {
@@ -66,6 +66,23 @@ namespace Events.API.Controllers
         public async Task<IActionResult> GetEventsById(string eventId, CancellationToken cancellation)
         {
             var result = await _eventService.GetEventsByID(eventId, cancellation);
+
+            /*if (!result)
+            {
+                return StatusCode(500, "Ошибка при создании мероприятия");
+            }*/
+
+
+            return Ok(result);
+        }
+
+        [HttpDelete("eventId")]
+        /*[Authorize(Roles = "ADMIN, MODER")]*/
+       /* [ProducesResponseType(typeof(IEnumerable<GetEventDto>), 200)]*/
+        [ProducesResponseType(500)]
+        public async Task<IActionResult> DeleteEventsById(string eventId, CancellationToken cancellation)
+        {
+            var result = await _eventService.DeleteEvents(eventId, cancellation);
 
             /*if (!result)
             {

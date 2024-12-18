@@ -4,6 +4,7 @@ using Events.Shared.Dto;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Concurrent;
 using System.Text.Json;
+using System.Threading;
 using System.Threading.Channels;
 
 namespace Events.Infrastructure.Messaging.Consumer
@@ -14,12 +15,7 @@ namespace Events.Infrastructure.Messaging.Consumer
 
         private readonly string _responseTopic;
 
-        private CancellationTokenSource _cancellationTokenSource;
 
-        private static readonly ConcurrentDictionary<string, IEnumerable<string>> _dictionary = new();
-        private readonly EventCache cache = new();
-
-        private readonly Channel<bool> _updated;
 
         public EventConsumer(IConfiguration configuration)
         {
@@ -27,14 +23,12 @@ namespace Events.Infrastructure.Messaging.Consumer
             {
                 BootstrapServers = configuration["Kafka:BootstrapServers"],
                 GroupId = "event-response-group",
-                AutoOffsetReset = AutoOffsetReset.Latest
+                AutoOffsetReset = AutoOffsetReset.Earliest
             };
+
             _consumer = new ConsumerBuilder<string, string>(config).Build();
             _responseTopic = configuration["Kafka:ResponseTopic"];
 
-            _cancellationTokenSource = new CancellationTokenSource();
-
-            _updated = Channel.CreateUnbounded<bool>();
         }
 
         public async Task StartConsumingAsync(CancellationToken cancellationToken)
@@ -68,13 +62,7 @@ namespace Events.Infrastructure.Messaging.Consumer
 
                 foreach (var eventDto in deserializedData)
                 {
-                    _dictionary.AddOrUpdate(
-                        eventDto.eventId,
-                        eventDto.categories,
-                        (key, category) => eventDto.categories
-                    );
-
-                    _updated.Writer.TryWrite(true);
+                    EventCache.UpdateCache(eventDto);
                 }
             }
             catch (Exception ex)
@@ -83,23 +71,31 @@ namespace Events.Infrastructure.Messaging.Consumer
             }
         }
 
-        public ConcurrentDictionary<string, IEnumerable<string>> GetDataCache()
+        public async Task<bool> WaitNotification(CancellationToken cancellation) 
         {
-            return _dictionary;
-        }
+           
+            _consumer.Subscribe(new[] { "event-data-delete-response" });
 
-        public async Task WaitForCacheUpdateAsync(CancellationToken cancellationToken)
-        {
-            while (!_dictionary.Any())
+            while (!cancellation.IsCancellationRequested)
             {
-                await Task.Delay(100, cancellationToken);
-                Console.WriteLine("Ожидание данных...");
+                var message = _consumer.Consume(cancellation);
+                
+                await Task.Delay(100, cancellation);
+                Console.WriteLine("Ожидание подтверждения...");
+
+                if(message?.Message?.Value == "event data was removed" || message.Message.Value == "category not found")
+                {
+                    _consumer.Close();
+                    return true;
+                }
             }
+
+            Console.WriteLine("Успешно...");
+
+            
+
+            return true;
         }
-
-
-
-
     }
 
 }

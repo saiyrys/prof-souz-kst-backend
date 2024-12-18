@@ -14,7 +14,8 @@ namespace Events.Domain.Models
         [Column("organizer")]
         public string? Organizer { get; private set; }
         [Column("eventDate")]
-        public DateTime EventDate { get; private set; }
+
+        public DateTime EventDate { get; private set; } 
         [Column("link")]
         public string? Link { get; private set; }
         [Column("totalTickets")]
@@ -41,7 +42,7 @@ namespace Events.Domain.Models
                 throw new ArgumentException("Название не может быть пустым!");
 
             Title = title;
-            UpdatedAt = DateTime.UtcNow;
+            UpdatedAt = DateTime.Now;
         }
 
         public void SetDescription(string description)
@@ -50,7 +51,7 @@ namespace Events.Domain.Models
                 throw new ArgumentException("Описание не может быть пустым!");
 
             Description = description;
-            UpdatedAt = DateTime.UtcNow;
+            UpdatedAt = DateTime.Now;
         }
 
         public void SetOrganizer(string organizer)
@@ -59,29 +60,30 @@ namespace Events.Domain.Models
                 throw new ArgumentException("Поле организаторов не может быть пустым!");
 
             Organizer = organizer;
-            UpdatedAt = DateTime.UtcNow;
+            UpdatedAt = DateTime.Now;
 
         }
         public void SetEventDate(DateTime date)
         {
-            if (date < DateTime.UtcNow)
+            if (date < DateTime.Now)
                 throw new ArgumentException("Дата мероприятия не может быть в прошлом!");
 
-            EventDate = Convert.ToDateTime(date);
-            UpdatedAt = DateTime.UtcNow;
+            EventDate = date.ToUniversalTime();
+           
+            UpdatedAt = DateTime.Now;
 
         }
 
         public void SetLink(string link)
         {
             Link = link;
-            UpdatedAt = DateTime.UtcNow;
+            UpdatedAt = DateTime.Now;
         }
 
         public void SetTickets(int tickets)
         {
             TotalTickets = tickets;
-            UpdatedAt = DateTime.UtcNow;
+            UpdatedAt = DateTime.Now;
         }
     }
 }

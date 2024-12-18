@@ -1,4 +1,6 @@
 ﻿using Confluent.Kafka;
+using Events.Domain.Models;
+using Events.Shared.Dto;
 using Microsoft.Extensions.Configuration;
 using System.Text.Json;
 using System.Threading;
@@ -21,6 +23,17 @@ namespace Events.Infrastructure.Messaging.Producer
             _topic = "get-event-categories";
         }
 
+        public async Task SendCreateEventCategoryAsync(EventDto message)
+        {
+            var data = JsonSerializer.Serialize(message);
+
+            await _producer.ProduceAsync("create-event-topic", new Message<string, string>
+            {
+                Key = message.eventId,
+                Value = data
+            });
+        }
+
         public async Task RequestAllCategories(CancellationToken cancellationToken)
         {
             var message = new Message<string, string>
@@ -32,7 +45,7 @@ namespace Events.Infrastructure.Messaging.Producer
             try
             {
                 // Отправляем сообщение в топик для запроса категорий
-                await _producer.ProduceAsync(_topic, message, cancellationToken);
+                await _producer.ProduceAsync("get-event-all-categories", message, cancellationToken);
                 Console.WriteLine("Request for all event categories sent.");
             }
             catch (Exception ex)
@@ -50,6 +63,17 @@ namespace Events.Infrastructure.Messaging.Producer
             };
 
             await _producer.ProduceAsync(_topic, message, cancellation);
+        }
+
+        public async Task RequestForDeleteEventDataAsync(string eventId, CancellationToken cancellation)
+        {
+            var message = new Message<string, string>
+            {
+                Key = eventId,
+                Value = "delete-category"
+            };
+
+            await _producer.ProduceAsync("delete-event-categories-data", message, cancellation);
         }
     }
 }

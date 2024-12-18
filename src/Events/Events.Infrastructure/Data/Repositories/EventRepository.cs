@@ -12,8 +12,6 @@ namespace Events.Infrastructure.Data.Repository
     {
         private readonly ApplicationDbContext _context;
 
-
-
         public EventRepository(ApplicationDbContext context)
         {
             _context = context;
@@ -24,14 +22,39 @@ namespace Events.Infrastructure.Data.Repository
         {
             _context.Event.Add(events);
 
-            await _context.SaveChangesAsync();
-
             return await SaveEvents();
         }
-
-        public Task<bool> DeleteEvents(Event events)
+        public async Task<bool> CreateEventWithTransaction(Event @event)
         {
-            throw new NotImplementedException();
+            using var transaction = await _context.Database.BeginTransactionAsync();
+
+            try
+            {
+                _context.Event.Add(@event);
+                await _context.SaveChangesAsync();
+
+             
+
+                await transaction.CommitAsync();  // Фиксируем изменения
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                await transaction.RollbackAsync();  // Откат
+                Console.WriteLine($"Error during transaction: {ex.Message}");
+                return false;
+            }
+        }
+
+
+        public async Task<bool> DeleteEvents(string eventId)
+        {
+            var @event = await GetEventById(eventId);
+
+            _context.Event.Remove(@event);
+
+            return await SaveEvents();
         }
 
         public async Task<Event> GetEventById(string id)

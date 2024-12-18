@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace Events.Infrastructure.CacheService
 {
-    public class EventCache
+    public static class EventCache
     {
         private static readonly ConcurrentDictionary<string, IEnumerable<string>> _dictionary = new();
 
-        public void UpdateCache(EventDto eventDto)
+        public static void UpdateCache(EventDto eventDto)
         {
            /* ReloadCache();
 */
@@ -23,26 +23,26 @@ namespace Events.Infrastructure.CacheService
             );
         }
 
-        public ConcurrentDictionary<string, IEnumerable<string>> GetDataCache()
+        public static ConcurrentDictionary<string, IEnumerable<string>> GetDataCache()
         {
             return _dictionary;
         }
 
-        public IEnumerable<string>? GetCategories(string eventId)
+        public static IEnumerable<string>? GetCategories(string eventId)
         {
             _dictionary.TryGetValue(eventId, out var categories);
 
             return categories;
         }
 
-        public ConcurrentDictionary<string, IEnumerable<string>> ReloadCache()
+        public static ConcurrentDictionary<string, IEnumerable<string>> ReloadCache()
         {
             return new ConcurrentDictionary<string, IEnumerable<string>>();
         }
 
-        public async Task WaitForCacheUpdateAsync(CancellationToken cancellationToken)
+        public async static Task WaitForCacheUpdateAsync(CancellationToken cancellationToken)
         {
-            while (_dictionary.Any())
+            while (!_dictionary.Any())
             {
                 await Task.Delay(100, cancellationToken);
                 Console.WriteLine("Ожидание данных...");
