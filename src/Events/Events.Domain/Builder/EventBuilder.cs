@@ -8,12 +8,12 @@ namespace Events.Domain.Builder
     {
         private readonly Event @event;
 
+        private bool isBuilt = false;
+
         public EventBuilder()
         {
             @event = new Event();
         }
-
-        
 
         public EventBuilder WithTitle(string title)
         {
@@ -53,6 +53,11 @@ namespace Events.Domain.Builder
 
         public Event Build()
         {
+            if (isBuilt)
+                throw new InvalidOperationException();
+
+            isBuilt = true;
+
             return @event;
         }
     }/*public EventBuilder FromDto(CreateEventDto dto)

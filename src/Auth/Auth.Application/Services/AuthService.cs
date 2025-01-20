@@ -110,11 +110,11 @@ namespace Auth.Application.Services
 
             var userDto = _mapper.Map<UserInfoDto>(user);
 
-            var newAccessToken = _generateToken.GenerateAccessToken(userDto);
+            var newToken = await _generateToken.GenerateToken(userDto);
 
             return new LoginResponseDto
             {
-                AccessToken = await newAccessToken,
+                AccessToken = newToken.Item1,
                 User = userDto
             };
         }

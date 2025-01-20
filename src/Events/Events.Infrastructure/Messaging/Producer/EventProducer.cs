@@ -1,9 +1,8 @@
 ﻿using Confluent.Kafka;
-using Events.Domain.Models;
 using Events.Shared.Dto;
 using Microsoft.Extensions.Configuration;
 using System.Text.Json;
-using System.Threading;
+
 
 namespace Events.Infrastructure.Messaging.Producer
 {

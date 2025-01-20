@@ -24,7 +24,7 @@ namespace Auth.Application.Services
             _httpContext = httpContext;
         }
 
-        public async Task<string> GenerateAccessToken(UserInfoDto user)
+        private async Task<string> GenerateAccessToken(UserInfoDto user)
         {
             var signingCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256);
 
@@ -49,7 +49,7 @@ namespace Auth.Application.Services
             return await Task.FromResult(tokenJson);
         }
 
-        public async Task<string> GenerateRefreshToken(UserInfoDto user)
+        private async Task<string> GenerateRefreshToken(UserInfoDto user)
         {
             var claims = new[]
             {

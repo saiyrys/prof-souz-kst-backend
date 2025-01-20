@@ -32,7 +32,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Auth", "Auth", "{3C07DF60-D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auth.Application", "src\Auth\Auth.Application\Auth.Application.csproj", "{0955AAC9-A9F7-4CDF-AB0F-5D9F14058E44}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{C9E87FD4-52FE-405F-9B0F-7C547F70C928}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SomeServices", "SomeServices", "{C9E87FD4-52FE-405F-9B0F-7C547F70C928}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserControl", "src\Services\UserControl\UserControl.csproj", "{6E24A950-4123-4187-98FA-58E250D8034C}"
 EndProject

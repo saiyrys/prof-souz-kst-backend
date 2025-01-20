@@ -1,14 +1,16 @@
 ﻿using AutoMapper;
 using Confluent.Kafka;
 using Events.Application.Interfaces;
+using Events.Application.Utilities.PaginationUtil;
 using Events.Domain.Builder;
 using Events.Domain.Models;
 using Events.Infrastructure.CacheService;
+using Events.Infrastructure.Data.Extension;
 using Events.Infrastructure.Data.Repository;
 using Events.Infrastructure.Messaging.Consumer;
 using Events.Infrastructure.Messaging.Producer;
 using Events.Shared.Dto;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using Polly;
 
 namespace Events.Application.Services
@@ -38,10 +40,8 @@ namespace Events.Application.Services
            
         }
 
-        public async Task<IEnumerable<GetEventDto>> GetEvents(EventFilterDto filter, CancellationToken cancellation)
+        public async Task<(IEnumerable<GetEventDto>, int TotalPages)> GetEvents(EventQueryDto query, CancellationToken cancellation)
         {
-            int page = 1;
-
             await RequestCategory(null, cancellation);
             
             var events = await _eventRepository.GetEvents();
@@ -69,8 +69,27 @@ namespace Events.Application.Services
                 };
             }).ToList();
 
-            return eventDtos;
+            var search = EventFilterExtensions.FiltrationEvents(eventDtos, query);
+
+            var pagination = Pagination.PaginationItem(eventDtos, query.Paging.page, query.Paging.PageSize);
+            eventDtos = pagination.Item1;
+
+            var totalPages = pagination.Item2;
+
+            return (eventDtos, totalPages);
         } 
+
+
+
+
+
+
+
+
+
+
+
+
         public async Task<GetEventDto> GetEventsByID(string eventId, CancellationToken cancellation)
         {
             var @event = await _eventRepository.GetEventById(eventId);
@@ -131,9 +150,10 @@ namespace Events.Application.Services
 
 
             var isEventSaved = true;
+
             await retryPolicy.ExecuteAsync(async () =>
             {
-                isEventSaved = await _eventRepository.CreateEvents(@event);
+                isEventSaved = await _eventRepository.CreateEventTransaction(@event);
 
                 if (!isEventSaved)
                     throw new Exception("Ошибка записи в таблицу");
@@ -144,16 +164,8 @@ namespace Events.Application.Services
                 throw new InvalidOperationException("Не удалось записать данные после всех попыток");
             }
 
-            try
-            {
-                await _eventProducer.SendCreateEventCategoryAsync(eventMessage);
-               
-            }
-            catch (Exception ex)
-            {
-                await _eventRepository.DeleteEvents(@event.EventId); // Откат в случае ошибки Kafka
-                throw new InvalidOperationException("Ошибка отправки в Kafka. Откат действий.", ex);
-            }
+            await SendEventDataToKafka(eventMessage);
+
             return true;
         }
 
@@ -168,6 +180,21 @@ namespace Events.Application.Services
             return true;
         }
 
+        private async Task<bool> SendEventDataToKafka(EventDto eventMessage)
+        {
+            try
+            {
+                await _eventProducer.SendCreateEventCategoryAsync(eventMessage);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                await _eventRepository.DeleteEvents(eventMessage.eventId); 
+                throw new InvalidOperationException("Ошибка отправки в Kafka. Откат действий.", ex);
+            }
+        }
+
         private async Task RequestCategory(string? eventId, CancellationToken cancellation)
         {
             if (!string.IsNullOrEmpty(eventId)) {
@@ -178,11 +205,6 @@ namespace Events.Application.Services
             await _eventProducer.RequestAllCategories(cancellation);
 
             await EventCache.WaitForCacheUpdateAsync(cancellation);
-        }
-
-       
-        
-
-       
+        } 
     }
 }

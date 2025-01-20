@@ -1,11 +1,9 @@
 using Confluent.Kafka;
 using Events.API.HostedService;
 using Events.Application.Services;
-using Events.Infrastructure.CacheService;
 using Events.Infrastructure.Data;
 using Events.Infrastructure.Data.Repository;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Events.Infrastructure.Messaging.Consumer;
 using Events.Infrastructure.Messaging.Producer;
 using Events.Application.Interfaces;
@@ -47,7 +45,6 @@ builder.Services.AddScoped<EventDataReadyConsumer>();
 builder.Services.AddSingleton<IHostedService>(provider =>
 {
     var scopeFactory = provider.GetRequiredService<IServiceScopeFactory>();
-/*    var cacheService = provider.GetRequiredService<EventCache>();*/
     var lifeTime = provider.GetRequiredService<IHostApplicationLifetime>();
 
     return new ConsumerHostedService(scopeFactory,lifeTime);

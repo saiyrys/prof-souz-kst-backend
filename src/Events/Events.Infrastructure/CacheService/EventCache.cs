@@ -1,10 +1,6 @@
 ﻿using Events.Shared.Dto;
-using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Events.Infrastructure.CacheService
 {
@@ -14,8 +10,6 @@ namespace Events.Infrastructure.CacheService
 
         public static void UpdateCache(EventDto eventDto)
         {
-           /* ReloadCache();
-*/
             _dictionary.AddOrUpdate(
                 eventDto.eventId,
                 eventDto.categories,

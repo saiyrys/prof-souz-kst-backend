@@ -24,7 +24,7 @@ namespace Events.Infrastructure.Data.Repository
 
             return await SaveEvents();
         }
-        public async Task<bool> CreateEventWithTransaction(Event @event)
+        public async Task<bool> CreateEventTransaction(Event @event)
         {
             using var transaction = await _context.Database.BeginTransactionAsync();
 
@@ -33,8 +33,6 @@ namespace Events.Infrastructure.Data.Repository
                 _context.Event.Add(@event);
                 await _context.SaveChangesAsync();
 
-             
-
                 await transaction.CommitAsync();  // Фиксируем изменения
 
                 return true;
@@ -42,6 +40,7 @@ namespace Events.Infrastructure.Data.Repository
             catch (Exception ex)
             {
                 await transaction.RollbackAsync();  // Откат
+
                 Console.WriteLine($"Error during transaction: {ex.Message}");
                 return false;
             }

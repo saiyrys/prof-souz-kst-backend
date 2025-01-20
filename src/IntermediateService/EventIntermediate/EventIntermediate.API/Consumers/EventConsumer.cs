@@ -30,6 +30,7 @@ namespace EventIntermediate.API.Consumers
                 BootstrapServers = configuration["Kafka:BootstrapServers"],
                 GroupId = configuration["Kafka:GroupId"],
                 AutoOffsetReset = AutoOffsetReset.Earliest
+                
             };
             _consumer = new ConsumerBuilder<string, string>(config).Build();
 
@@ -142,7 +143,7 @@ namespace EventIntermediate.API.Consumers
                 Console.WriteLine($"Received message: {message.Message.Value}");
                 var payload = JsonSerializer.Deserialize<EventDto>(message.Message.Value);
 
-                if (payload == null)
+                if (payload == null )
                 {
                     Console.WriteLine("Received null payload.");
                     return; // Пропустить итерацию, если payload null
