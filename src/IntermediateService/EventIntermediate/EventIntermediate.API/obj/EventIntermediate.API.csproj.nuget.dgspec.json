@@ -124,6 +124,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Confluent.Kafka": {
+              "target": "Package",
+              "version": "[2.8.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -202,7 +208,7 @@
           "dependencies": {
             "Confluent.Kafka": {
               "target": "Package",
-              "version": "[2.6.0, )"
+              "version": "[2.8.0, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -282,6 +288,16 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNet.WebApi.Core": {
+              "target": "Package",
+              "version": "[5.3.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -357,7 +373,7 @@
           "dependencies": {
             "Confluent.Kafka": {
               "target": "Package",
-              "version": "[2.6.0, )"
+              "version": "[2.8.0, )"
             },
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",

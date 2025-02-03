@@ -3,6 +3,10 @@ using Confluent.Kafka;
 using Events.Application.Interfaces;
 using Events.Application.Utilities.PaginationUtil;
 using Events.Domain.Builder;
+using Events.Domain.Interface;
+using Events.Domain.Interfaces;
+
+//using Events.Domain.Interfaces;
 using Events.Domain.Models;
 using Events.Infrastructure.CacheService;
 using Events.Infrastructure.Data.Extension;
@@ -20,105 +24,45 @@ namespace Events.Application.Services
         private readonly IProducer<string, string> _producer; 
         private readonly IEventRepository _eventRepository;
         private readonly IMapper _mapper;
-        private readonly EventConsumer _consumer;
-        private readonly EventProducer _eventProducer;
-        private readonly EventDataReadyConsumer _dataReady;
+        private readonly IPagination _pagination;
+     
+        private readonly IEventProducer _eventProducer;
+        private readonly IEventDataReadyConsumer _dataReady;
+        private readonly IEventCache _cache;
 
 
-        public EventService(IProducer<string, string> producer, IEventRepository eventRepository, 
-            EventConsumer consumer, EventProducer eventProducer, EventDataReadyConsumer dataReady
-            , IMapper mapper)
+        public EventService(IProducer<string, string> producer, IEventRepository eventRepository,
+             IEventProducer eventProducer, IEventDataReadyConsumer dataReady
+            ,IMapper mapper, IPagination pagination, IEventCache cache)
         {
             _producer = producer;
             _eventRepository = eventRepository;
-            _consumer = consumer;
-
             _eventProducer = eventProducer;
             _mapper = mapper;
-
             _dataReady = dataReady;
-           
+            _pagination = pagination;
+            _cache = cache;
         }
 
         public async Task<(IEnumerable<GetEventDto>, int TotalPages)> GetEvents(EventQueryDto query, CancellationToken cancellation)
         {
-            await RequestCategory(null, cancellation);
-            
-            var events = await _eventRepository.GetEvents();
-            
-            var eventCategory = EventCache.GetDataCache();
+            var eventDto = await GetCategoryFromCache(null, cancellation);
 
-            var eventDtos = events.Select(e =>
-            {
-                var categories = eventCategory.ContainsKey(e.EventId)
-                    ? eventCategory[e.EventId]
-                    : new List<string>(); // Если нет категорий, возвращаем пустой список
+            var paginationItem = _pagination.PaginationItem(eventDto, query.Paging.page = 1);
 
-                return new GetEventDto
-                {
-                    eventId = e.EventId,
-                    title = e.Title,
-                    organizer = e.Organizer,
-                    description = e.Description,
-                    eventDate = e.EventDate.ToShortDateString(),
-                    link = e.Link,
-                    totalTickets = e.TotalTickets,
-                    createdAt = e.CreatedAt.ToShortDateString(),
-                    updatedAt = e.UpdatedAt.ToShortDateString(),
-                    categories = (ICollection<string>)categories
-                };
-            }).ToList();
+            eventDto = paginationItem.Item1;
+            int totalPages = paginationItem.Item2;
 
-            var search = EventFilterExtensions.FiltrationEvents(eventDtos, query);
-
-            var pagination = Pagination.PaginationItem(eventDtos, query.Paging.page, query.Paging.PageSize);
-            eventDtos = pagination.Item1;
-
-            var totalPages = pagination.Item2;
-
-            return (eventDtos, totalPages);
+            return (eventDto, totalPages);
         } 
-
-
-
-
-
-
-
-
-
-
-
 
         public async Task<GetEventDto> GetEventsByID(string eventId, CancellationToken cancellation)
         {
-            var @event = await _eventRepository.GetEventById(eventId);
+            var eventDto = await GetCategoryFromCache(eventId, cancellation);
 
-            await RequestCategory(eventId, cancellation);
+            var @event = eventDto.FirstOrDefault(e => e.eventId == eventId);
 
-            var eventCategory = EventCache.GetDataCache();
-
-            var categories = eventCategory.ContainsKey(@event.EventId)
-                    ? eventCategory[@event.EventId]
-                    : new List<string>();
-
-            var eventDto = new GetEventDto
-            {
-                    eventId = @event.EventId,
-                    title = @event.Title,
-                    organizer = @event.Organizer,
-                    description = @event.Description,
-                    eventDate = @event.EventDate.ToShortDateString(),
-                    link = @event.Link,
-                    totalTickets = @event.TotalTickets,
-                    createdAt = @event.CreatedAt.ToShortDateString(),
-                    updatedAt = @event.UpdatedAt.ToShortDateString(),
-                    categories = (ICollection<string>)categories
-             };
-
-
-            return eventDto;
-
+            return @event;
         }
 
         public async Task<bool> CreateEvents(CreateEventDto dto, CancellationToken cancellation)
@@ -155,16 +99,13 @@ namespace Events.Application.Services
             {
                 isEventSaved = await _eventRepository.CreateEventTransaction(@event);
 
-                if (!isEventSaved)
-                    throw new Exception("Ошибка записи в таблицу");
+                await SendEventDataToKafka(eventMessage);
             });
 
             if (!isEventSaved)
             {
                 throw new InvalidOperationException("Не удалось записать данные после всех попыток");
             }
-
-            await SendEventDataToKafka(eventMessage);
 
             return true;
         }
@@ -173,11 +114,43 @@ namespace Events.Application.Services
         {
             await _eventProducer.RequestForDeleteEventDataAsync(eventId, cancellation);
 
-            await _consumer.WaitNotification(cancellation);
+            await _dataReady.WaitNotificationForEventWasDeleted(cancellation);
 
             await _eventRepository.DeleteEvents(eventId);
 
             return true;
+        }
+
+        private async Task<List<GetEventDto>> GetCategoryFromCache(string? eventId, CancellationToken cancellation)
+        {
+            await RequestCategory(null, cancellation);
+
+            var events = await _eventRepository.GetEvents();
+
+            var eventCategory = _cache.GetDataCache();
+
+            var eventDtos = events.Select(e =>
+            {
+                var categories = eventCategory.ContainsKey(e.EventId)
+                        ? eventCategory[e.EventId]
+                        : new List<string>();
+
+                return new GetEventDto
+                {
+                    eventId = e.EventId,
+                    title = e.Title,
+                    organizer = e.Organizer,
+                    description = e.Description,
+                    eventDate = e.EventDate.ToShortDateString(),
+                    link = e.Link,
+                    totalTickets = e.TotalTickets,
+                    createdAt = e.CreatedAt.ToShortDateString(),
+                    updatedAt = e.UpdatedAt.ToShortDateString(),
+                    categories = (ICollection<string>)categories
+                };
+            }).ToList();
+
+            return eventDtos;
         }
 
         private async Task<bool> SendEventDataToKafka(EventDto eventMessage)
@@ -199,12 +172,12 @@ namespace Events.Application.Services
         {
             if (!string.IsNullOrEmpty(eventId)) {
                 await _eventProducer.RequestForEventCategory(eventId, cancellation);
-                await EventCache.WaitForCacheUpdateAsync(cancellation);    
+                await _cache.WaitForCacheUpdateAsync(cancellation);    
                 return;
             }
             await _eventProducer.RequestAllCategories(cancellation);
 
-            await EventCache.WaitForCacheUpdateAsync(cancellation);
+            await _cache.WaitForCacheUpdateAsync(cancellation);
         } 
     }
 }

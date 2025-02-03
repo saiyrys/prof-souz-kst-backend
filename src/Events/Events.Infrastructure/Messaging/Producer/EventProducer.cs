@@ -1,4 +1,5 @@
 ﻿using Confluent.Kafka;
+using Events.Domain.Interface;
 using Events.Shared.Dto;
 using Microsoft.Extensions.Configuration;
 using System.Text.Json;
@@ -6,7 +7,7 @@ using System.Text.Json;
 
 namespace Events.Infrastructure.Messaging.Producer
 {
-    public class EventProducer
+    public class EventProducer : IEventProducer
     {
         private readonly IProducer<string, string> _producer;
         private readonly string _topic;

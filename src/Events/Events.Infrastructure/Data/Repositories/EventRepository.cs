@@ -24,6 +24,7 @@ namespace Events.Infrastructure.Data.Repository
 
             return await SaveEvents();
         }
+
         public async Task<bool> CreateEventTransaction(Event @event)
         {
             using var transaction = await _context.Database.BeginTransactionAsync();
@@ -79,6 +80,7 @@ namespace Events.Infrastructure.Data.Repository
 
             return await SaveEvents();
         }
+
         public async Task<bool> SaveEvents()
         {
             await _context.SaveChangesAsync();

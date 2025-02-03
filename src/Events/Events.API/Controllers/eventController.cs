@@ -1,4 +1,5 @@
 ﻿using Events.Application.Interfaces;
+using Events.Domain.Interface;
 using Events.Infrastructure.Messaging.Consumer;
 using Events.Shared.Dto;
 using Microsoft.AspNetCore.Mvc;
@@ -46,17 +47,17 @@ namespace Events.API.Controllers
         /*[Authorize(Roles = "ADMIN, MODER")]*/
         [ProducesResponseType(typeof(IEnumerable<GetEventDto>), 200)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> GetEvents([FromQuery]EventFilterDto filter, CancellationToken cancellation)
+        public async Task<IActionResult> GetEvents([FromQuery]EventQueryDto filter, CancellationToken cancellation)
         {
-            var result = await _eventService.GetEvents(filter, cancellation);
+            var (@event, totalPages) = await _eventService.GetEvents(filter, cancellation);
 
-            /*if (!result)
+            if (!ModelState.IsValid)
             {
-                return StatusCode(500, "Ошибка при создании мероприятия");
-            }*/
+                return BadRequest(ModelState);
+            }
 
 
-            return Ok(result);
+            return Ok(new { Items = @event, TotalPages = totalPages });
         }
 
         [HttpGet("eventId")]

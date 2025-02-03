@@ -9,3 +9,4 @@ C:\Users\Павел\Desktop\Profunion\src\Events\Events.Shared\obj\Debug\net6.0\
 C:\Users\Павел\Desktop\Profunion\src\Events\Events.Shared\obj\Debug\net6.0\refint\Events.Shared.dll
 C:\Users\Павел\Desktop\Profunion\src\Events\Events.Shared\obj\Debug\net6.0\Events.Shared.pdb
 C:\Users\Павел\Desktop\Profunion\src\Events\Events.Shared\obj\Debug\net6.0\ref\Events.Shared.dll
+C:\Users\Павел\Desktop\Profunion\src\Events\Events.Shared\obj\Debug\net6.0\Events.Shared.csproj.AssemblyReference.cache

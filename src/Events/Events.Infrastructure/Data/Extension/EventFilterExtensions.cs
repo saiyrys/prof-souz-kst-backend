@@ -10,9 +10,15 @@ namespace Events.Infrastructure.Data.Extension
 {
     public static class EventFilterExtensions
     {
-        public static IQueryable<GetEventDto> FiltrationEvents(this IQueryable<GetEventDto> events, EventQueryDto queryDto)
+        public static IEnumerable<GetEventDto> FiltrationEvents(this IEnumerable<GetEventDto> events, EventQueryDto queryDto)
         {
-            string searchString = queryDto.Filters.search;
+            if(queryDto.Filters == null)
+            {
+                return events;
+            }
+
+            string? searchString = queryDto.Filters.search;
+
             if (!string.IsNullOrEmpty(searchString))
             {
                 searchString = searchString.ToLower();

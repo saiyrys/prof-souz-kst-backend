@@ -7,6 +7,11 @@ using Microsoft.EntityFrameworkCore;
 using Events.Infrastructure.Messaging.Consumer;
 using Events.Infrastructure.Messaging.Producer;
 using Events.Application.Interfaces;
+using Events.Domain.Interface;
+using Events.Infrastructure.CacheService;
+/*using Events.Domain.Interfaces;*/
+using Events.Application.Utilities.PaginationUtil;
+using Events.Domain.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +27,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 });
 builder.Services.AddScoped<IEventRepository, EventRepository>();
 builder.Services.AddScoped<IEventService, EventService>();
+builder.Services.AddScoped<IPagination, Pagination>();
 
 
 builder.Services.AddSingleton<IProducer<string, string>>(provider =>
@@ -33,14 +39,14 @@ builder.Services.AddSingleton<IProducer<string, string>>(provider =>
 
     return new ProducerBuilder<string, string>(config).Build();
 });
-builder.Services.AddSingleton<EventProducer>();
+builder.Services.AddSingleton<IEventProducer, EventProducer>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-/*builder.Services.AddScoped<EventCache>();*/
+builder.Services.AddSingleton<IEventCache, EventCache>();
 
 builder.Services.AddScoped<EventConsumer>();
-builder.Services.AddScoped<EventDataReadyConsumer>();
+builder.Services.AddScoped<IEventDataReadyConsumer, EventDataReadyConsumer>();
 
 builder.Services.AddSingleton<IHostedService>(provider =>
 {

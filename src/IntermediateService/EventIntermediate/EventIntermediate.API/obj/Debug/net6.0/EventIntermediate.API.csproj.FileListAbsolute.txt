@@ -74,3 +74,6 @@ C:\Users\Павел\Desktop\Profunion\src\IntermediateService\EventIntermediate\
 C:\Users\Павел\Desktop\Profunion\src\IntermediateService\EventIntermediate\EventIntermediate.API\obj\Debug\net6.0\EventIntermediate.API.pdb
 C:\Users\Павел\Desktop\Profunion\src\IntermediateService\EventIntermediate\EventIntermediate.API\obj\Debug\net6.0\EventIntermediate.API.genruntimeconfig.cache
 C:\Users\Павел\Desktop\Profunion\src\IntermediateService\EventIntermediate\EventIntermediate.API\obj\Debug\net6.0\ref\EventIntermediate.API.dll
+C:\Users\Павел\Desktop\Profunion\src\IntermediateService\EventIntermediate\EventIntermediate.API\bin\Debug\net6.0\System.Net.Http.Formatting.dll
+C:\Users\Павел\Desktop\Profunion\src\IntermediateService\EventIntermediate\EventIntermediate.API\bin\Debug\net6.0\System.Web.Http.dll
+C:\Users\Павел\Desktop\Profunion\src\IntermediateService\EventIntermediate\EventIntermediate.API\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll

@@ -1,4 +1,5 @@
 ﻿using Confluent.Kafka;
+using Events.Domain.Interface;
 using Events.Shared.Dto;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Events.Infrastructure.Messaging.Consumer
 {
-    public class EventDataReadyConsumer
+    public class EventDataReadyConsumer : IEventDataReadyConsumer
     {
         private readonly IConsumer<string, string> _consumer;
 
@@ -66,6 +67,29 @@ namespace Events.Infrastructure.Messaging.Consumer
             return await tcs.Task;
   
         }
-       
+
+        public async Task<bool> WaitNotificationForEventWasDeleted(CancellationToken cancellation)
+        {
+            _consumer.Subscribe(new[] { "event-data-delete-response" });
+
+            while (!cancellation.IsCancellationRequested)
+            {
+                var message = _consumer.Consume(cancellation);
+
+                await Task.Delay(100, cancellation);
+                Console.WriteLine("Ожидание подтверждения...");
+
+                if (message?.Message?.Value == "event data was removed" || message.Message.Value == "category not found")
+                {
+                    _consumer.Close();
+                    return true;
+                }
+            }
+
+            Console.WriteLine("Успешно...");
+
+            return true;
+        }
+
     }
 }
