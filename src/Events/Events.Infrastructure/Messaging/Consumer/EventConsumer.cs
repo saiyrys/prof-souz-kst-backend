@@ -1,8 +1,6 @@
 ﻿using Confluent.Kafka;
 using Events.Domain.Interface;
 using Events.Domain.Interfaces;
-
-/*using Events.Domain.Interfaces;*/
 using Events.Infrastructure.CacheService;
 using Events.Shared.Dto;
 using Microsoft.Extensions.Configuration;
@@ -72,6 +70,29 @@ namespace Events.Infrastructure.Messaging.Consumer
             {
                 Console.WriteLine($"Error during consumption: {ex.Message}");
             }
+        }
+
+        public async Task<bool> WaitNotificationForEventWasDeleted(CancellationToken cancellation)
+        {
+            _consumer.Subscribe(new[] { "event-data-delete-response" });
+
+            while (!cancellation.IsCancellationRequested)
+            {
+                var message = _consumer.Consume(cancellation);
+
+                await Task.Delay(100, cancellation);
+                Console.WriteLine("Ожидание подтверждения...");
+
+                if (message?.Message?.Value == "event data was removed" || message.Message.Value == "category not found")
+                {
+                    _consumer.Close();
+                    return true;
+                }
+            }
+
+            Console.WriteLine("Успешно...");
+
+            return true;
         }
     }
 

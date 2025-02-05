@@ -39,23 +39,13 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "Filters.search",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Sorting.SortBy",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Sorting.isDescending",
-        "Type": "System.Boolean",
-        "IsRequired": false
-      },
-      {
-        "Name": "Paging.page",
+        "Name": "page",
         "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "search",
+        "Type": "System.String",
         "IsRequired": false
       }
     ],

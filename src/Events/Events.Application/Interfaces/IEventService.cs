@@ -9,7 +9,7 @@ namespace Events.Application.Interfaces
 {
     public interface IEventService
     {
-        Task<(IEnumerable<GetEventDto>, int TotalPages)> GetEvents(EventQueryDto query, CancellationToken cancellation);
+        Task<(IEnumerable<GetEventDto>, int TotalPages)> GetEvents(int page, CancellationToken cancellation, string? search = null);
         /*        Task<ICollection<GetEventDto>> GetEventsWithCategory();*/
         Task<GetEventDto> GetEventsByID(string eventId, CancellationToken cancellation);
         /*        Task<bool> confirmLink(string eventId);*/

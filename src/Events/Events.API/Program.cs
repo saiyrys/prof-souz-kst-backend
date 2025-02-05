@@ -12,6 +12,7 @@ using Events.Infrastructure.CacheService;
 /*using Events.Domain.Interfaces;*/
 using Events.Application.Utilities.PaginationUtil;
 using Events.Domain.Interfaces;
+using Events.Application.Utilities.FiltrationUtill;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -44,9 +45,11 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddSingleton<IEventCache, EventCache>();
+builder.Services.AddScoped<ISearch, Search>();
 
 builder.Services.AddScoped<EventConsumer>();
-builder.Services.AddScoped<IEventDataReadyConsumer, EventDataReadyConsumer>();
+builder.Services.AddScoped<EventDataReadyConsumer>();
+builder.Services.AddLogging();
 
 builder.Services.AddSingleton<IHostedService>(provider =>
 {

@@ -47,9 +47,9 @@ namespace Events.API.Controllers
         /*[Authorize(Roles = "ADMIN, MODER")]*/
         [ProducesResponseType(typeof(IEnumerable<GetEventDto>), 200)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> GetEvents([FromQuery]EventQueryDto filter, CancellationToken cancellation)
+        public async Task<IActionResult> GetEvents(int page, CancellationToken cancellation, string? search = null)
         {
-            var (@event, totalPages) = await _eventService.GetEvents(filter, cancellation);
+            var (@event, totalPages) = await _eventService.GetEvents(page, cancellation, search);
 
             if (!ModelState.IsValid)
             {

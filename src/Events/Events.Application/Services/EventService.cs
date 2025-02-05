@@ -5,17 +5,15 @@ using Events.Application.Utilities.PaginationUtil;
 using Events.Domain.Builder;
 using Events.Domain.Interface;
 using Events.Domain.Interfaces;
-
-//using Events.Domain.Interfaces;
 using Events.Domain.Models;
 using Events.Infrastructure.CacheService;
-using Events.Infrastructure.Data.Extension;
 using Events.Infrastructure.Data.Repository;
 using Events.Infrastructure.Messaging.Consumer;
 using Events.Infrastructure.Messaging.Producer;
 using Events.Shared.Dto;
 using Microsoft.Extensions.Logging;
 using Polly;
+using System.Data.SqlClient;
 
 namespace Events.Application.Services
 {
@@ -25,15 +23,17 @@ namespace Events.Application.Services
         private readonly IEventRepository _eventRepository;
         private readonly IMapper _mapper;
         private readonly IPagination _pagination;
-     
+        private readonly ILogger<EventService> _logger;
         private readonly IEventProducer _eventProducer;
-        private readonly IEventDataReadyConsumer _dataReady;
+        private readonly EventDataReadyConsumer _dataReady;
         private readonly IEventCache _cache;
+        private readonly ISearch _search;
 
 
         public EventService(IProducer<string, string> producer, IEventRepository eventRepository,
-             IEventProducer eventProducer, IEventDataReadyConsumer dataReady
-            ,IMapper mapper, IPagination pagination, IEventCache cache)
+             IEventProducer eventProducer, EventDataReadyConsumer dataReady
+            ,IMapper mapper, IPagination pagination, IEventCache cache,
+             ILogger<EventService> logger, ISearch search)
         {
             _producer = producer;
             _eventRepository = eventRepository;
@@ -42,13 +42,26 @@ namespace Events.Application.Services
             _dataReady = dataReady;
             _pagination = pagination;
             _cache = cache;
+
+            _logger = logger;
+            _search = search;
         }
 
-        public async Task<(IEnumerable<GetEventDto>, int TotalPages)> GetEvents(EventQueryDto query, CancellationToken cancellation)
+        public async Task<(IEnumerable<GetEventDto>, int TotalPages)> GetEvents(int page, CancellationToken cancellation, string? search = null)
         {
             var eventDto = await GetCategoryFromCache(null, cancellation);
 
-            var paginationItem = _pagination.PaginationItem(eventDto, query.Paging.page = 1);
+            if(eventDto == null || !eventDto.Any())
+            {
+                return (new List<GetEventDto>(), 0);
+            }
+
+            if (!string.IsNullOrEmpty(search))
+            {
+                eventDto = await _search.SearchingEvents(eventDto.ToList(), search);
+            }
+
+            var paginationItem = _pagination.PaginationItem(eventDto.ToList(), page);
 
             eventDto = paginationItem.Item1;
             int totalPages = paginationItem.Item2;
@@ -121,36 +134,58 @@ namespace Events.Application.Services
             return true;
         }
 
-        private async Task<List<GetEventDto>> GetCategoryFromCache(string? eventId, CancellationToken cancellation)
+        private async Task<IEnumerable<GetEventDto>> GetCategoryFromCache(string? eventId, CancellationToken cancellation)
         {
-            await RequestCategory(null, cancellation);
-
-            var events = await _eventRepository.GetEvents();
-
-            var eventCategory = _cache.GetDataCache();
-
-            var eventDtos = events.Select(e =>
+            try
             {
-                var categories = eventCategory.ContainsKey(e.EventId)
-                        ? eventCategory[e.EventId]
-                        : new List<string>();
+                await RequestCategory(null, cancellation);
 
-                return new GetEventDto
+                var events = await _eventRepository.GetEvents();
+
+                if (events == null || !events.Any())
                 {
-                    eventId = e.EventId,
-                    title = e.Title,
-                    organizer = e.Organizer,
-                    description = e.Description,
-                    eventDate = e.EventDate.ToShortDateString(),
-                    link = e.Link,
-                    totalTickets = e.TotalTickets,
-                    createdAt = e.CreatedAt.ToShortDateString(),
-                    updatedAt = e.UpdatedAt.ToShortDateString(),
-                    categories = (ICollection<string>)categories
-                };
-            }).ToList();
+                    return new List<GetEventDto>();
+                }
 
-            return eventDtos;
+                var eventCategory = _cache.GetDataCache();
+
+                if (!eventCategory.Any())
+                    return new List<GetEventDto>();
+
+                var eventDtos = events.Select(e =>
+                {
+                    var categories = eventCategory.ContainsKey(e.EventId)
+                            ? eventCategory[e.EventId]
+                            : new List<string>();
+
+                    return new GetEventDto
+                    {
+                        eventId = e.EventId,
+                        title = e.Title,
+                        organizer = e.Organizer,
+                        description = e.Description,
+                        eventDate = e.EventDate.ToShortDateString(),
+                        link = e.Link,
+                        totalTickets = e.TotalTickets,
+                        createdAt = e.CreatedAt.ToShortDateString(),
+                        updatedAt = e.UpdatedAt.ToShortDateString(),
+                        categories = (ICollection<string>)categories
+                    };
+                }).ToList();
+
+                return eventDtos;
+            }
+            catch (SqlException ex)
+            {
+                _logger.LogError(ex, "DB Error");
+                return new List<GetEventDto>();
+            }
+            catch(Exception ex)
+            {
+                _logger.LogError(ex, "Неизвестная ошибка при получении событий");
+                return new List<GetEventDto>();
+            }
+            
         }
 
         private async Task<bool> SendEventDataToKafka(EventDto eventMessage)

@@ -11,8 +11,8 @@ using System.Threading.Tasks;
 
 namespace Events.Infrastructure.Messaging.Consumer
 {
-    public class EventDataReadyConsumer : IEventDataReadyConsumer
-    {
+    public class EventDataReadyConsumer
+    { 
         private readonly IConsumer<string, string> _consumer;
 
         private readonly Dictionary<string, Func<CancellationToken,Task>> _topicHandlers;

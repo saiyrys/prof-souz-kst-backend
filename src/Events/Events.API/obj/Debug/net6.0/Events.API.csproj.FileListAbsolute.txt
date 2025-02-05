@@ -89,3 +89,9 @@ C:\Users\Павел\Desktop\Profunion\src\Events\Events.API\bin\Debug\net6.0\Pol
 C:\Users\Павел\Desktop\Profunion\src\Events\Events.API\bin\Debug\net6.0\System.Net.Http.Formatting.dll
 C:\Users\Павел\Desktop\Profunion\src\Events\Events.API\bin\Debug\net6.0\System.Web.Http.dll
 C:\Users\Павел\Desktop\Profunion\src\Events\Events.API\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+C:\Users\Павел\Desktop\Profunion\src\Events\Events.API\bin\Debug\net6.0\System.Data.SqlClient.dll
+C:\Users\Павел\Desktop\Profunion\src\Events\Events.API\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+C:\Users\Павел\Desktop\Profunion\src\Events\Events.API\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+C:\Users\Павел\Desktop\Profunion\src\Events\Events.API\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+C:\Users\Павел\Desktop\Profunion\src\Events\Events.API\bin\Debug\net6.0\runtimes\unix\lib\net6.0\System.Data.SqlClient.dll
+C:\Users\Павел\Desktop\Profunion\src\Events\Events.API\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Data.SqlClient.dll

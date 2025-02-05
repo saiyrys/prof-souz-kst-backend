@@ -19,4 +19,8 @@
     <ProjectReference Include="..\Events.Domain\Events.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Data\Extension\" />
+  </ItemGroup>
+
 </Project>
