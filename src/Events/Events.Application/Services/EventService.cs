@@ -28,12 +28,13 @@ namespace Events.Application.Services
         private readonly EventDataReadyConsumer _dataReady;
         private readonly IEventCache _cache;
         private readonly ISearch _search;
+        private readonly ISortAction _sortAction;
 
 
         public EventService(IProducer<string, string> producer, IEventRepository eventRepository,
              IEventProducer eventProducer, EventDataReadyConsumer dataReady
             ,IMapper mapper, IPagination pagination, IEventCache cache,
-             ILogger<EventService> logger, ISearch search)
+             ILogger<EventService> logger, ISearch search, ISortAction sortAction)
         {
             _producer = producer;
             _eventRepository = eventRepository;
@@ -42,12 +43,12 @@ namespace Events.Application.Services
             _dataReady = dataReady;
             _pagination = pagination;
             _cache = cache;
-
+            _sortAction = sortAction;
             _logger = logger;
             _search = search;
         }
 
-        public async Task<(IEnumerable<GetEventDto>, int TotalPages)> GetEvents(int page, CancellationToken cancellation, string? search = null)
+        public async Task<(IEnumerable<GetEventDto>, int TotalPages)> GetEvents(int page, CancellationToken cancellation, QueryDto query, SortState sort)
         {
             var eventDto = await GetCategoryFromCache(null, cancellation);
 
@@ -56,9 +57,14 @@ namespace Events.Application.Services
                 return (new List<GetEventDto>(), 0);
             }
 
-            if (!string.IsNullOrEmpty(search))
+            if (!string.IsNullOrEmpty(query.search))
             {
-                eventDto = await _search.SearchingEvents(eventDto.ToList(), search);
+                eventDto = _search.SearchingEvents(ref eventDto, query);
+            }
+
+            if(sort != SortState.Current)
+            {
+                eventDto = _sortAction.SortObject(ref eventDto, sort);
             }
 
             var paginationItem = _pagination.PaginationItem(eventDto.ToList(), page);

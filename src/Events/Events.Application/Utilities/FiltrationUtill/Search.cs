@@ -17,8 +17,9 @@ namespace Events.Application.Utilities.FiltrationUtill
             _eventRepository = eventRepository;
         }
 
-        public async Task<ICollection<GetEventDto>> SearchingEvents(ICollection<GetEventDto> events, string? search = null)
+        public IEnumerable<GetEventDto> SearchingEvents(ref IEnumerable<GetEventDto> events, QueryDto queryDto)
         {
+            string search = queryDto.search;
             IQueryable<GetEventDto> query = events.AsQueryable();
 
             if (search == null)

@@ -9,6 +9,6 @@ namespace Events.Application.Interfaces
 {
     public interface ISearch
     {
-        Task<ICollection<GetEventDto>> SearchingEvents(ICollection<GetEventDto> events, string search);
+        IEnumerable<GetEventDto> SearchingEvents(ref IEnumerable<GetEventDto> events, QueryDto query);
     }
 }

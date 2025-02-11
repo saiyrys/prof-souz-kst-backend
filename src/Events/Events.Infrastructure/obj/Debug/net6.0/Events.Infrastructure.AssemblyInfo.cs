@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Events.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+69b6411c3f3eb188f952a4d2059595750bbb2461")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4efa0b9d9270cac2c1921e02a8c33622293f6b71")]
 [assembly: System.Reflection.AssemblyProductAttribute("Events.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Events.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

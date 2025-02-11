@@ -7,11 +7,7 @@ namespace Events.Shared.Dto
 {
     public class QueryDto
     {
-        public string? Search { get; }
-
-        public string? Sort { get; }
-
-        public bool IsDescending { get; }
+        public string? search { get; set; }
     }
 
     public class FilterDto
@@ -21,5 +17,16 @@ namespace Events.Shared.Dto
         public bool? Status { get; }
     }
 
+    public enum SortState
+    {
+        Current,
+        AlphabeticAsc,
+        AlphabeticDesc,
+        DateAsc,
+        DateDesc,
+        TicketsAsc,
+        TicketsDesc
+        
+    }
 
 }

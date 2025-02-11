@@ -47,6 +47,11 @@
         "Name": "search",
         "Type": "System.String",
         "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "Events.Shared.Dto.SortState",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [

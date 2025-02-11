@@ -13,6 +13,7 @@ using Events.Infrastructure.CacheService;
 using Events.Application.Utilities.PaginationUtil;
 using Events.Domain.Interfaces;
 using Events.Application.Utilities.FiltrationUtill;
+using Events.Application.Utilities.FiltrationUtill.Sort;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,6 +30,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddScoped<IEventRepository, EventRepository>();
 builder.Services.AddScoped<IEventService, EventService>();
 builder.Services.AddScoped<IPagination, Pagination>();
+builder.Services.AddScoped<ISortAction, SortAction>();
 
 
 builder.Services.AddSingleton<IProducer<string, string>>(provider =>
