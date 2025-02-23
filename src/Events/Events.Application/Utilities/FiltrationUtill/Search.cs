@@ -1,5 +1,5 @@
 ﻿using Events.Application.Interfaces;
-using Events.Infrastructure.Data.Repository;
+using Events.Infrastructure.Data.Repositories;
 using Events.Shared.Dto;
 using System;
 using System.Collections.Generic;
@@ -12,14 +12,16 @@ namespace Events.Application.Utilities.FiltrationUtill
     public class Search : ISearch
     {
         private readonly IEventRepository _eventRepository;
+
         public Search(IEventRepository eventRepository)
         {
             _eventRepository = eventRepository;
         }
 
-        public IEnumerable<GetEventDto> SearchingEvents(ref IEnumerable<GetEventDto> events, QueryDto queryDto)
+        public async Task<IEnumerable<GetEventDto>> SearchingEvents(IEnumerable<GetEventDto> events, QueryDto queryDto)
         {
             string search = queryDto.search;
+
             IQueryable<GetEventDto> query = events.AsQueryable();
 
             if (search == null)
@@ -33,7 +35,6 @@ namespace Events.Application.Utilities.FiltrationUtill
                     e.title.ToLower().Contains(search) ||
                     e.description.ToLower().Contains(search) ||
                     e.categories.Any(c => c.ToString().ToLower().Contains(search)) ||
-                    e.totalTickets.ToString().Contains(search) ||
                     e.createdAt.ToString().Contains(search) ||
                     e.updatedAt.ToString().Contains(search));
             }

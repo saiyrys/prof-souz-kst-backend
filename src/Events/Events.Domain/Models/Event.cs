@@ -14,13 +14,9 @@ namespace Events.Domain.Models
         [Column("organizer")]
         public string? Organizer { get; private set; }
         [Column("eventDate")]
-
         public DateTime EventDate { get; private set; } 
         [Column("link")]
         public string? Link { get; private set; }
-        [Column("totalTickets")]
-        public int TotalTickets { get; private set; }
-
         [Column("createdAt")]
         public DateTime CreatedAt { get; private set; }
         [Column("updatedAt")]
@@ -77,12 +73,6 @@ namespace Events.Domain.Models
         public void SetLink(string link)
         {
             Link = link;
-            UpdatedAt = DateTime.Now;
-        }
-
-        public void SetTickets(int tickets)
-        {
-            TotalTickets = tickets;
             UpdatedAt = DateTime.Now;
         }
     }

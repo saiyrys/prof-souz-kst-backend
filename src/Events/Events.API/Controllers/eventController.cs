@@ -1,4 +1,4 @@
-﻿using Events.Application.Interfaces;
+﻿using Events.Application.Interfaces.IService;
 using Events.Domain.Interface;
 using Events.Infrastructure.Messaging.Consumer;
 using Events.Shared.Dto;
@@ -30,7 +30,7 @@ namespace Events.API.Controllers
                 return BadRequest();
             }
 
-            var result = await _eventService.CreateEvents(eventsCreate, cancellation);
+            var result = await _eventService.CreateEvent(eventsCreate, cancellation);
 
             if (!result)
             {
@@ -66,7 +66,7 @@ namespace Events.API.Controllers
         [ProducesResponseType(500)]
         public async Task<IActionResult> GetEventsById(string eventId, CancellationToken cancellation)
         {
-            var result = await _eventService.GetEventsByID(eventId, cancellation);
+            var result = await _eventService.GetEventById(eventId, cancellation);
 
             /*if (!result)
             {
@@ -83,7 +83,7 @@ namespace Events.API.Controllers
         [ProducesResponseType(500)]
         public async Task<IActionResult> DeleteEventsById(string eventId, CancellationToken cancellation)
         {
-            var result = await _eventService.DeleteEvents(eventId, cancellation);
+            var result = await _eventService.DeleteEvent(eventId, cancellation);
 
             /*if (!result)
             {

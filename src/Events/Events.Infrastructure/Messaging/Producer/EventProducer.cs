@@ -23,7 +23,7 @@ namespace Events.Infrastructure.Messaging.Producer
             _topic = "get-event-categories";
         }
 
-        public async Task SendCreateEventCategoryAsync(EventDto message)
+        public async Task ProduceEventDataAsync(EventDto message)
         {
             var data = JsonSerializer.Serialize(message);
 
@@ -54,26 +54,13 @@ namespace Events.Infrastructure.Messaging.Producer
             }
         }
 
-        public async Task RequestForEventCategory(string eventId, CancellationToken cancellation)
+        public async Task ProduceDeleteIntermediateAsync(string eventId, CancellationToken cancellation)
         {
-            var message = new Message<string, string>
+            await _producer.ProduceAsync("delete-intermediate-topic", new Message<string, string>
             {
                 Key = eventId,
-                Value = "get-category"
-            };
-
-            await _producer.ProduceAsync(_topic, message, cancellation);
-        }
-
-        public async Task RequestForDeleteEventDataAsync(string eventId, CancellationToken cancellation)
-        {
-            var message = new Message<string, string>
-            {
-                Key = eventId,
-                Value = "delete-category"
-            };
-
-            await _producer.ProduceAsync("delete-event-categories-data", message, cancellation);
+                Value = eventId
+            });
         }
     }
 }

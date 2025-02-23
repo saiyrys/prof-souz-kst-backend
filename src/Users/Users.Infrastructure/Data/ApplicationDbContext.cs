@@ -11,7 +11,7 @@ namespace Users.Infrastructure.Data
 {
     public partial class ApplicationDbContext : DbContext
     {
-        public virtual DbSet<User> users { get; set; } = null;
+        public virtual DbSet<User> Users { get; set; } = null;
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : 
             base(options)

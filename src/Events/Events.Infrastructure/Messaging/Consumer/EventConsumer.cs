@@ -72,24 +72,63 @@ namespace Events.Infrastructure.Messaging.Consumer
             }
         }
 
+        public async Task<bool> CreateTopic(CancellationToken cancellation)
+        {
+            _consumer.Subscribe("create-topic-response");
+
+            try
+            {
+                while (!cancellation.IsCancellationRequested)
+                {
+                    var message = _consumer.Consume(cancellation);
+
+                    await Task.Delay(100, cancellation);
+                    Console.WriteLine("Ожидание подтверждения...");
+
+                    if (message?.Message.Value == "Creation success")
+                    {
+                        _consumer.Close();
+                        return true;
+                    } 
+                }
+
+                Console.WriteLine("Успешно");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+
+            return true;
+        }
+
         public async Task<bool> WaitNotificationForEventWasDeleted(CancellationToken cancellation)
         {
-            _consumer.Subscribe(new[] { "event-data-delete-response" });
+            _consumer.Subscribe("event-delete-response");
 
-            while (!cancellation.IsCancellationRequested)
+            try
             {
-                var message = _consumer.Consume(cancellation);
-
-                await Task.Delay(100, cancellation);
-                Console.WriteLine("Ожидание подтверждения...");
-
-                if (message?.Message?.Value == "event data was removed" || message.Message.Value == "category not found")
+                while (!cancellation.IsCancellationRequested)
                 {
-                    _consumer.Close();
-                    return true;
+                    var message = _consumer.Consume(cancellation);
+
+                    await Task.Delay(100, cancellation);
+                    Console.WriteLine("Ожидание подтверждения...");
+
+                    if (message?.Message.Value == "event data was removed")
+                    {
+                        _consumer.Close();
+                        return true;
+                    }
                 }
             }
 
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
             Console.WriteLine("Успешно...");
 
             return true;

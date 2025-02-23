@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Services\UserControl\UserControl.csproj" />
+    <ProjectReference Include="..\UserControl\Users.Control.csproj" />
     <ProjectReference Include="..\Users.Infrastructure\Users.Infrastructure.csproj" />
   </ItemGroup>
 

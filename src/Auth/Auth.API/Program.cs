@@ -1,15 +1,13 @@
 using Auth.Application.Constants;
+using Auth.Application.Interface;
 using Auth.Application.Services;
+using Auth.Domain.Data;
 using Auth.Domain.Interface;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Auth.Infrastructure.Factories;
+using Auth.Infrastructure.Repository;
+using Auth.Infrastructure.SomeService.GenerationPassword;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
-using UserControl;
-using Users.Domain.Factories;
-using Users.Domain.Services.HashPassword;
-using Users.Infrastructure.Data;
-using Users.Infrastructure.Repositories;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,7 +25,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddScoped(typeof(IControl<>), typeof(Control<>));
 builder.Services.AddScoped<IAuthService, AuthService>();
-builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 builder.Services.AddScoped<UserFactory, CreateUserFactory>();
 builder.Services.AddScoped<TokenGeneration>();
 builder.Services.AddScoped<IHashingPassword, HashingPassword>();

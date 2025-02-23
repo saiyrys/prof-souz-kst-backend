@@ -2,8 +2,7 @@
 using Auth.Domain.Interface;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using UserControl;
-using Users.Domain.Entities;
+
 
 namespace Auth.API.Controllers
 {

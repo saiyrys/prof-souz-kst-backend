@@ -33,8 +33,6 @@ namespace Category.Application.Services
 
             categoryDto.categoriesId = Guid.NewGuid().ToString();
 
-            
-
             _context.Add(categoryDto);
 
             await Save();
@@ -42,16 +40,14 @@ namespace Category.Application.Services
             return true;
 
         }
-        public async Task<List<CategoryDto>> GetAllCategories()
+        public async Task<List<Categories>> GetAllCategories()
         {
             var categories = await _context.Categories.OrderBy(c => c.categoriesId).ToListAsync();
 
             if (categories is null)
                 throw new ArgumentNullException("Categories not find");
 
-            var categoriesDto = _mapper.Map<List<CategoryDto>>(categories);
-
-            return categoriesDto;
+            return categories;
         }
 
         public Task<CategoryDto> GetCategory(string id)

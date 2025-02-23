@@ -11,8 +11,6 @@ namespace Events.Shared.Dto
         public string eventDate { get; set; }
         public string link { get; set; }
         public ICollection<string> categories { get; set; }
-        
-        public int totalTickets { get; set; }
         public string createdAt { get; set; }
         public string updatedAt { get; set; }
     }/* public bool isActive { get; set; }

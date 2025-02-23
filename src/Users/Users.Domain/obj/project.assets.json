@@ -638,6 +638,7 @@
           "AutoMapper": "13.0.1",
           "SendGrid": "9.29.3",
           "UserControl": "1.0.0",
+          "Users.Control": "1.0.0",
           "Users.Infrastructure": "1.0.0"
         },
         "compile": {
@@ -645,6 +646,22 @@
         },
         "runtime": {
           "bin/placeholder/Users.Application.dll": {}
+        }
+      },
+      "Users.Control/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
+          "Microsoft.EntityFrameworkCore": "6.0.33",
+          "System.IdentityModel.Tokens.Jwt": "8.0.2",
+          "Users.Infrastructure": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Users.Control.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Users.Control.dll": {}
         }
       },
       "Users.Infrastructure/1.0.0": {
@@ -1456,6 +1473,11 @@
       "type": "project",
       "path": "../Users.Application/Users.Application.csproj",
       "msbuildProject": "../Users.Application/Users.Application.csproj"
+    },
+    "Users.Control/1.0.0": {
+      "type": "project",
+      "path": "../UserControl/Users.Control.csproj",
+      "msbuildProject": "../UserControl/Users.Control.csproj"
     },
     "Users.Infrastructure/1.0.0": {
       "type": "project",

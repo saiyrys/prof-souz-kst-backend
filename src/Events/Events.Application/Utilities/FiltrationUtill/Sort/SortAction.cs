@@ -5,7 +5,7 @@ namespace Events.Application.Utilities.FiltrationUtill.Sort
 {
     public class SortAction : ISortAction
     {
-        public IEnumerable<GetEventDto> SortObject(ref IEnumerable<GetEventDto> events, SortState? sort)
+        public IEnumerable<GetEventDto> SortObject(IEnumerable<GetEventDto> events, SortState? sort)
         {
             switch (sort)
             {
@@ -20,12 +20,6 @@ namespace Events.Application.Utilities.FiltrationUtill.Sort
                     break;
                 case SortState.DateDesc:
                     events = events.OrderByDescending(e => e.eventDate);
-                    break;
-                case SortState.TicketsAsc:
-                    events = events.OrderBy(e => e.totalTickets);
-                    break;
-                case SortState.TicketsDesc:
-                    events = events.OrderByDescending(e => e.totalTickets);
                     break;
                 default:
                     events = events.OrderBy(e => e.title);

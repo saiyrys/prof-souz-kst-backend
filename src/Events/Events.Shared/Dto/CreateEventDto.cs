@@ -20,7 +20,6 @@ namespace Events.Shared.Dto
         public string link { get; set; }
 
         public ICollection<string> categoriesId { get; set; }
-        public int totalTickets { get; set; }
 
     }
 }

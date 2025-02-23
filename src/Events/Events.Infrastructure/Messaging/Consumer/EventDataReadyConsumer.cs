@@ -33,44 +33,45 @@ namespace Events.Infrastructure.Messaging.Consumer
 
             _topicHandlers = new Dictionary<string, Func<CancellationToken, Task>>
             {
-                { _createEventTopic, cancellation => WaitEventConfirmation(cancellation) },
+                { _createEventTopic, cancellation => CreateTopic(cancellation) },
             };
         }
 
-        public async Task<bool> WaitEventConfirmation(CancellationToken cancellation)
+        public async Task<bool> CreateTopic(CancellationToken cancellation)
         {
-            var tcs = new TaskCompletionSource<bool>();
-
             _consumer.Subscribe("create-event-topic");
-
-            _ = Task.Run(() =>
+           
+            try
             {
-                try
+                while (!cancellation.IsCancellationRequested)
                 {
-                    while (!cancellation.IsCancellationRequested)
-                    {
-                        var message = _consumer.Consume(cancellation);
+                    var message = _consumer.Consume(cancellation);
 
-                        if (message?.Message.Value == "creation canceled")
-                            tcs.SetResult(false);
-                        else
-                            tcs.SetResult(true);
-                        return;
+                    await Task.Delay(100, cancellation);
+                    Console.WriteLine("Ожидание подтверждения...");
+
+                    if(message?.Message.Value == "Creation Success")
+                    {
+                        _consumer.Close();
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
                     }
                 }
-                catch (Exception ex)
-                {
-                    tcs.SetException(ex);
-                }
-            }, cancellation);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
-            return await tcs.Task;
-  
+            return true;
         }
 
         public async Task<bool> WaitNotificationForEventWasDeleted(CancellationToken cancellation)
         {
-            _consumer.Subscribe(new[] { "event-data-delete-response" });
+            _consumer.Subscribe( "event-delete-response" );
 
             while (!cancellation.IsCancellationRequested)
             {

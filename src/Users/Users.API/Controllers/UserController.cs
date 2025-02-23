@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using UserControl;
 using Users.Application.Interface;
 using Users.Domain.Entities;
 

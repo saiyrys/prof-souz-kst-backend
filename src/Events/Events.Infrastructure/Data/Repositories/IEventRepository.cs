@@ -1,7 +1,7 @@
 ﻿using Events.Domain.Models;
 using Events.Shared.Dto;
 
-namespace Events.Infrastructure.Data.Repository
+namespace Events.Infrastructure.Data.Repositories
 {
     public interface IEventRepository
     {

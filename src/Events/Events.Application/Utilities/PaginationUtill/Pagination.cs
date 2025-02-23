@@ -10,17 +10,23 @@ namespace Events.Application.Utilities.PaginationUtil
 {
     public class Pagination : IPagination
     {
-        public Tuple<List<T>, int> PaginationItem<T>(List<T> items, int page = 1)
+        public async Task<PagedResult<T>> Paginate<T>(IEnumerable<T> items, int page = 1)
         {
             int pageSize = 18;
-            int totalItems = items.Count;
+            int totalItems = items.Count();
             int totalPages = (int)Math.Ceiling((double)totalItems / pageSize);
 
             int skip = (page - 1) * pageSize;
 
             var itemsForPage = items.Skip(skip).Take(pageSize).ToList();
 
-            return Tuple.Create(itemsForPage, totalPages);
+            var result = new PagedResult<T>
+            {
+                Items = itemsForPage,
+                TotalPages = totalPages
+            };
+
+            return result;
         }
     }
 }

@@ -58,7 +58,6 @@ C:\Users\Павел\Desktop\Profunion\src\IntermediateService\EventIntermediate\
 C:\Users\Павел\Desktop\Profunion\src\IntermediateService\EventIntermediate\EventIntermediate.API\obj\Debug\net6.0\EventIntermediate.API.AssemblyInfoInputs.cache
 C:\Users\Павел\Desktop\Profunion\src\IntermediateService\EventIntermediate\EventIntermediate.API\obj\Debug\net6.0\EventIntermediate.API.AssemblyInfo.cs
 C:\Users\Павел\Desktop\Profunion\src\IntermediateService\EventIntermediate\EventIntermediate.API\obj\Debug\net6.0\EventIntermediate.API.csproj.CoreCompileInputs.cache
-C:\Users\Павел\Desktop\Profunion\src\IntermediateService\EventIntermediate\EventIntermediate.API\obj\Debug\net6.0\EventIntermediate.API.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Павел\Desktop\Profunion\src\IntermediateService\EventIntermediate\EventIntermediate.API\obj\Debug\net6.0\EventIntermediate.API.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Павел\Desktop\Profunion\src\IntermediateService\EventIntermediate\EventIntermediate.API\obj\Debug\net6.0\staticwebassets.build.json
 C:\Users\Павел\Desktop\Profunion\src\IntermediateService\EventIntermediate\EventIntermediate.API\obj\Debug\net6.0\staticwebassets.development.json
@@ -77,3 +76,12 @@ C:\Users\Павел\Desktop\Profunion\src\IntermediateService\EventIntermediate\
 C:\Users\Павел\Desktop\Profunion\src\IntermediateService\EventIntermediate\EventIntermediate.API\bin\Debug\net6.0\System.Net.Http.Formatting.dll
 C:\Users\Павел\Desktop\Profunion\src\IntermediateService\EventIntermediate\EventIntermediate.API\bin\Debug\net6.0\System.Web.Http.dll
 C:\Users\Павел\Desktop\Profunion\src\IntermediateService\EventIntermediate\EventIntermediate.API\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+C:\Users\Павел\Desktop\Profunion\src\IntermediateService\EventIntermediate\EventIntermediate.API\bin\Debug\net6.0\kafka-sharp.dll
+C:\Users\Павел\Desktop\Profunion\src\IntermediateService\EventIntermediate\EventIntermediate.API\bin\Debug\net6.0\LZ4.dll
+C:\Users\Павел\Desktop\Profunion\src\IntermediateService\EventIntermediate\EventIntermediate.API\bin\Debug\net6.0\LZ4pn.dll
+C:\Users\Павел\Desktop\Profunion\src\IntermediateService\EventIntermediate\EventIntermediate.API\bin\Debug\net6.0\Snappy.Standard.dll
+C:\Users\Павел\Desktop\Profunion\src\IntermediateService\EventIntermediate\EventIntermediate.API\bin\Debug\net6.0\System.Reactive.Core.dll
+C:\Users\Павел\Desktop\Profunion\src\IntermediateService\EventIntermediate\EventIntermediate.API\bin\Debug\net6.0\System.Reactive.Interfaces.dll
+C:\Users\Павел\Desktop\Profunion\src\IntermediateService\EventIntermediate\EventIntermediate.API\bin\Debug\net6.0\System.Reactive.Linq.dll
+C:\Users\Павел\Desktop\Profunion\src\IntermediateService\EventIntermediate\EventIntermediate.API\bin\Debug\net6.0\System.Runtime.InteropServices.WindowsRuntime.dll
+C:\Users\Павел\Desktop\Profunion\src\IntermediateService\EventIntermediate\EventIntermediate.API\obj\Debug\net6.0\EventIntermediate.API.MvcApplicationPartsAssemblyInfo.cs

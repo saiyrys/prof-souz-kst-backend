@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Events.Shared.Dto;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace Events.Application.Interfaces
 {
     public interface IPagination
     {
-        Tuple<List<T>, int> PaginationItem<T>(List<T> items, int page = 1);
+        Task<PagedResult<T>> Paginate<T>(IEnumerable<T> items, int page = 1);
     }
 }

@@ -38,9 +38,15 @@ namespace Events.Infrastructure.CacheService
 
         public async Task WaitForCacheUpdateAsync(CancellationToken cancellationToken)
         {
+            var awaitTime = DateTime.UtcNow.AddSeconds(10);
+
             while (!_dictionary.Any())
             {
-                await Task.Delay(100, cancellationToken);
+                if(DateTime.UtcNow > awaitTime)
+                {
+                    return;
+                }
+                await Task.Delay(600, cancellationToken);
                 Console.WriteLine("Ожидание данных...");
             }
         }

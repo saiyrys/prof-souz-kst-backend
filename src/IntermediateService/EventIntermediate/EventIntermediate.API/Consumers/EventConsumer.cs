@@ -44,7 +44,7 @@ namespace EventIntermediate.API.Consumers
             _createEventTopic = "create-event-topic";
             _getAllCategoryBundleTopic = "get-event-all-categories";
             _getCategoryForEventTopic = "get-event-categories";
-            _deleteCategoryBundleTopic = "delete-event-categories-data";
+            _deleteCategoryBundleTopic = "delete-intermediate-topic";
 
             _context = context;
 
@@ -154,6 +154,8 @@ namespace EventIntermediate.API.Consumers
                     var newEvent = payload.eventId;
                     var categoriesId = payload.categories;
 
+                    var eventCategories = new List<EventCategories>();
+
                     foreach (var categoryId in categoriesId)
                     {
                         _context.EventCategories.Add(new EventCategories
@@ -163,24 +165,21 @@ namespace EventIntermediate.API.Consumers
 
                         });
 
-                        await _producer.ProduceAsync(_responseTopic, new Message<string, string>
+                        await _context.EventCategories.AddRangeAsync(eventCategories);
+                        await _context.SaveChangesAsync(cancellationToken);
+
+                        await _producer.ProduceAsync("create-topic-response", new Message<string, string>
                         {
-                            Key = newEvent,
-                            Value = categoryId
+                            Key = message.Message.Key,
+                            Value = "Creation success"
                         });
+
+                        Console.WriteLine("Ответ отправлен");
                     }
-                    await _context.SaveChangesAsync(cancellationToken);
-                    
                 }
             }
             catch (Exception ex)
             {
-                await _producer.ProduceAsync("create-event-topic", new Message<string, string>
-                {
-                    Key = Guid.NewGuid().ToString(),
-                    Value = "creation canceled"
-                });
-
                 throw new InvalidOperationException("Ошибка создание ивента: " + ex);
             }
         }
@@ -188,23 +187,29 @@ namespace EventIntermediate.API.Consumers
         public async Task DeleteEventCategoryBundle(ConsumeResult<string, string> message, CancellationToken cancellation)
         {
             var eventCategory = await _context.EventCategories
-            .AsNoTracking().Where(ec => ec.eventId == message.Message.Key)
+            .AsNoTracking()
+            .Where(ec => ec.eventId == message.Message.Key)
             .ToListAsync(cancellation); 
 
-            if(eventCategory.Select(ec => ec.categoriesId) == null)
+            //Проверка данных в промежуточной таблице
+            if(!eventCategory.Any())
             {
-                await _producer.ProduceAsync("event-data-delete-response", new Message<string, string>
+                await _producer.ProduceAsync("event-delete-response", new Message<string, string>
                 {
                     Key = message.Message.Key,
-                    Value = "category not found"
+                    Value = "event data was removed"
                 });
+
+                Console.WriteLine("Категории не найдены, ответ отправлен.");
+                return;
             }
 
+            // Если есть категории то удаляем их.
             _context.EventCategories.RemoveRange(eventCategory);
-
             await _context.SaveChangesAsync(cancellation);
-      
-            await _producer.ProduceAsync("event-data-delete-response", new Message<string, string>
+
+            // После удаления, отправка в Kafka сообщения о то, что все прошло успешно
+            await _producer.ProduceAsync("event-delete-response", new Message<string, string>
             {
                 Key = message.Message.Key,
                 Value = "event data was removed"

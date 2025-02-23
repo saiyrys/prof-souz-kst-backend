@@ -7,6 +7,8 @@ namespace Events.Infrastructure.Data
     { 
         public virtual DbSet<Event> Event { get; set; }
 
+        public virtual DbSet<OutBox> OutBox { get; set; }
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) :
            base(options)
         {
@@ -21,6 +23,11 @@ namespace Events.Infrastructure.Data
                 entity.HasKey(e => new { e.EventId });
 
                 entity.HasIndex(e => new { e.Title }).IsUnique();
+            });
+
+            modelBuilder.Entity<OutBox>(entity =>
+            {
+                entity.HasKey(o => new { o.EventType });
             });
 
             OnModelCreatingPartial(modelBuilder);

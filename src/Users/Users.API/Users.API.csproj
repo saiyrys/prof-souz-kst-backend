@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.33" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.33" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.33">
       <PrivateAssets>all</PrivateAssets>
@@ -21,7 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Auth\Auth.Application\Auth.Application.csproj" />
     <ProjectReference Include="..\..\Services\UserControl\UserControl.csproj" />
     <ProjectReference Include="..\Users.Application\Users.Application.csproj" />
     <ProjectReference Include="..\Users.Domain\Users.Domain.csproj" />

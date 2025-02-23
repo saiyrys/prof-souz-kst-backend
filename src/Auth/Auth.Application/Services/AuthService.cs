@@ -1,19 +1,14 @@
 ﻿using Auth.Application.Dto;
+using Auth.Application.Interface;
 using Auth.Domain.Interface;
+using Auth.Domain.Models;
+using Auth.Infrastructure.Factories;
+using Auth.Infrastructure.Repository;
+using Auth.Infrastructure.SomeService.GenerationPassword;
 using AutoMapper;
-using Microsoft.AspNetCore.Identity;
 using SendGrid.Helpers.Errors.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UserControl;
-using Users.Application.Dto;
-using Users.Domain.Entities;
-using Users.Domain.Factories;
-using Users.Domain.Services.HashPassword;
-using Users.Infrastructure.Repositories;
+
+
 
 namespace Auth.Application.Services
 {
@@ -27,11 +22,12 @@ namespace Auth.Application.Services
         private readonly IMapper _mapper;
 
         private readonly UserFactory _userFactory;
-        private readonly IUserRepository _userRepository;
 
+        private readonly IAuthRepository _authRepository;
+ 
         public AuthService(IControl<User> control,
             TokenGeneration generateToken, IHashingPassword hashingPassword,
-            IMapper mapper, UserFactory userFactory, IUserRepository userRepository)
+            IMapper mapper, UserFactory userFactory, IAuthRepository authRepository)
         {
             Control = control;
             _generateToken = generateToken;
@@ -40,7 +36,7 @@ namespace Auth.Application.Services
 
             _userFactory = userFactory;
 
-            _userRepository = userRepository;
+            _authRepository = authRepository;
 
         }
 
@@ -82,7 +78,7 @@ namespace Auth.Application.Services
 
             var userMap = _mapper.Map<User>(createUser);
 
-            if(!await _userRepository.CreateUser(userMap))
+            if(!await _authRepository.CreateUserAsync(userMap))
                 throw new BadRequestException("Что то пошло не так при сохранении данных");
 
             return true;

@@ -10,6 +10,6 @@ namespace Events.Application.Interfaces
 {
     public interface ISortAction
     {
-        public IEnumerable<GetEventDto> SortObject(ref IEnumerable<GetEventDto> events, SortState? sort);
+        public IEnumerable<GetEventDto> SortObject(IEnumerable<GetEventDto> events, SortState? sort);
     }
 }

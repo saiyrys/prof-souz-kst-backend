@@ -1,4 +1,5 @@
 ﻿using Category.Application.Dto;
+using Category.Infrastructure.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace Category.Application.Interface
     {
         Task<bool> CreateCategories(CategoryDto category);
 
-        Task<List<CategoryDto>> GetAllCategories();
+        Task<List<Categories>> GetAllCategories();
 
         Task<CategoryDto> GetCategory(string id);
 

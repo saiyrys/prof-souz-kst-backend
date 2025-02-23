@@ -45,12 +45,6 @@ namespace Events.Domain.Builder
             return this;
         }
 
-        public EventBuilder WithTotalTickets(int totalTickets)
-        {
-            @event.SetTickets(totalTickets);
-            return this;
-        }
-
         public Event Build()
         {
             if (isBuilt)
@@ -60,31 +54,5 @@ namespace Events.Domain.Builder
 
             return @event;
         }
-    }/*public EventBuilder FromDto(CreateEventDto dto)
-        {
-            @event.title = dto.title;
-            @event.description = dto.description;
-            @event.organizer = dto.organizer;
-            @event.eventDate = dto.eventDate;
-            @event.link = dto.link;
-            @event.totalTickets = dto.totalTickets;
-
-            foreach(var categoryId in dto.categoriesId)
-            {
-                if (string.IsNullOrWhiteSpace(categoryId))
-                {
-                    throw new ArgumentException("Category ID cannot be null or empty.");
-                }
-                
-            }
-
-            return this;
-        }*/
-
-        /*private EventBuilder GenerateId()
-        {
-            @event.
-
-            return this;
-        }*/
+    }
 }

@@ -36,14 +36,9 @@ C:\Users\Павел\Desktop\Profunion\src\Users\Users.API\bin\Debug\net6.0\Swash
 C:\Users\Павел\Desktop\Profunion\src\Users\Users.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\Павел\Desktop\Profunion\src\Users\Users.API\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
 C:\Users\Павел\Desktop\Profunion\src\Users\Users.API\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
-C:\Users\Павел\Desktop\Profunion\src\Users\Users.API\bin\Debug\net6.0\System.Security.Permissions.dll
-C:\Users\Павел\Desktop\Profunion\src\Users\Users.API\bin\Debug\net6.0\Auth.Application.dll
-C:\Users\Павел\Desktop\Profunion\src\Users\Users.API\bin\Debug\net6.0\UserControl.dll
 C:\Users\Павел\Desktop\Profunion\src\Users\Users.API\bin\Debug\net6.0\Users.Application.dll
 C:\Users\Павел\Desktop\Profunion\src\Users\Users.API\bin\Debug\net6.0\Users.Domain.dll
 C:\Users\Павел\Desktop\Profunion\src\Users\Users.API\bin\Debug\net6.0\Users.Infrastructure.dll
-C:\Users\Павел\Desktop\Profunion\src\Users\Users.API\bin\Debug\net6.0\Auth.Application.pdb
-C:\Users\Павел\Desktop\Profunion\src\Users\Users.API\bin\Debug\net6.0\UserControl.pdb
 C:\Users\Павел\Desktop\Profunion\src\Users\Users.API\bin\Debug\net6.0\Users.Application.pdb
 C:\Users\Павел\Desktop\Profunion\src\Users\Users.API\bin\Debug\net6.0\Users.Domain.pdb
 C:\Users\Павел\Desktop\Profunion\src\Users\Users.API\bin\Debug\net6.0\Users.Infrastructure.pdb
@@ -68,3 +63,6 @@ C:\Users\Павел\Desktop\Profunion\src\Users\Users.API\obj\Debug\net6.0\refin
 C:\Users\Павел\Desktop\Profunion\src\Users\Users.API\obj\Debug\net6.0\Users.API.pdb
 C:\Users\Павел\Desktop\Profunion\src\Users\Users.API\obj\Debug\net6.0\Users.API.genruntimeconfig.cache
 C:\Users\Павел\Desktop\Profunion\src\Users\Users.API\obj\Debug\net6.0\ref\Users.API.dll
+C:\Users\Павел\Desktop\Profunion\src\Users\Users.API\bin\Debug\net6.0\Users.Control.dll
+C:\Users\Павел\Desktop\Profunion\src\Users\Users.API\bin\Debug\net6.0\Users.Control.pdb
+C:\Users\Павел\Desktop\Profunion\src\Users\Users.API\bin\Debug\net6.0\appsettings.json

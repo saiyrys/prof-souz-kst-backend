@@ -1,12 +1,12 @@
 ﻿using Category.Infrastructure.Models;
 using Events.Infrastructure.CacheService;
 using Events.Infrastructure.Messaging.Consumer;
-using Events.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Events.Domain.Models;
 using Events.Shared.Dto;
+using Newtonsoft.Json;
 
-namespace Events.Infrastructure.Data.Repository
+namespace Events.Infrastructure.Data.Repositories
 {
     public class EventRepository : IEventRepository
     {
@@ -22,7 +22,9 @@ namespace Events.Infrastructure.Data.Repository
         {
             _context.Event.Add(events);
 
-            return await SaveEvents();
+            await _context.SaveChangesAsync();
+
+            return true;
         }
 
         public async Task<bool> CreateEventTransaction(Event @event)
@@ -59,7 +61,7 @@ namespace Events.Infrastructure.Data.Repository
 
         public async Task<Event> GetEventById(string id)
         {
-            return await _context.Event.FirstOrDefaultAsync(e => e.EventId == id); 
+            return await _context.Event.FirstOrDefaultAsync(e => e.EventId == id);
         }
 
         public async Task<ICollection<Event>> GetEvents()
@@ -88,6 +90,6 @@ namespace Events.Infrastructure.Data.Repository
             return true;
         }
 
-        
+
     }
 }

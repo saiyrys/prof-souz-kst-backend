@@ -393,7 +393,22 @@
       "System.Memory/4.5.4": {},
       "System.Runtime.CompilerServices.Unsafe/6.0.0": {},
       "System.Text.Encodings.Web/4.5.0": {},
-      "UserControl/1.0.0": {
+      "Users.Application/1.0.0": {
+        "dependencies": {
+          "AutoMapper": "13.0.1",
+          "SendGrid": "9.29.3",
+          "UserControl": "1.0.0",
+          "Users.Control": "1.0.0",
+          "Users.Infrastructure": "1.0.0"
+        },
+        "runtime": {
+          "Users.Application.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Users.Control/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
           "Microsoft.EntityFrameworkCore": "6.0.33",
@@ -401,21 +416,7 @@
           "Users.Infrastructure": "1.0.0"
         },
         "runtime": {
-          "UserControl.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      },
-      "Users.Application/1.0.0": {
-        "dependencies": {
-          "AutoMapper": "13.0.1",
-          "SendGrid": "9.29.3",
-          "UserControl": "1.0.0",
-          "Users.Infrastructure": "1.0.0"
-        },
-        "runtime": {
-          "Users.Application.dll": {
+          "Users.Control.dll": {
             "assemblyVersion": "1.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -708,12 +709,12 @@
       "path": "system.text.encodings.web/4.5.0",
       "hashPath": "system.text.encodings.web.4.5.0.nupkg.sha512"
     },
-    "UserControl/1.0.0": {
+    "Users.Application/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Users.Application/1.0.0": {
+    "Users.Control/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

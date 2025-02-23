@@ -18,12 +18,12 @@ namespace Users.Infrastructure.Repositories
         }
         public async Task<ICollection<User>> GetAllUser()
         {
-            return await _context.users.OrderBy(u => u.userId).ToListAsync(); 
+            return await _context.Users.OrderBy(u => u.userId).ToListAsync(); 
         }
 
         public async Task<User> GetUserById(string Id)
         {
-            return await _context.users.Where(u => u.userId == Id).FirstOrDefaultAsync();
+            return await _context.Users.Where(u => u.userId == Id).FirstOrDefaultAsync();
         }
 
         public Task<User> GetUserByToken(string token)
@@ -39,7 +39,7 @@ namespace Users.Infrastructure.Repositories
 
         public async Task<ICollection<User>> SearchUser(string search = null, string sort = null, string type = null, string f = null)
         {
-            IQueryable<User> query = _context.users;
+            IQueryable<User> query = _context.Users;
 
             if (!string.IsNullOrEmpty(search))
             {
